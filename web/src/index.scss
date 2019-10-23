@@ -1,0 +1,24 @@
+input {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0;
+  background-clip: border-box;
+}
+
+button, .btn {
+  border-radius: 0;
+}
+
+.container {
+  padding: 20px 0;
+}
+
+.MuiNativeSelect-select:focus {
+  background-color: white !important;
+}
+
+.row {
+  margin: 0;
+}

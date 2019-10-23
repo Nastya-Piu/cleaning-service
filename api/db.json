@@ -1,0 +1,68 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "BeeClean.by",
+      "description": "",
+      "address": "vulica Chernyshevskogo 10А, office 801, Minsk",
+      "services": [],
+      "rate": 4.5,
+      "reviews": [],
+      "price": 30,
+      "requests": 26
+    },
+    {
+      "id": 2,
+      "name": "Gubka.by",
+      "description": "",
+      "address": "vulica Čapajeva 3, 212, Minsk 220034",
+      "services": [],
+      "rate": 4.2,
+      "reviews": [],
+      "price": 42,
+      "requests": 15
+    },
+    {
+      "id": 3,
+      "name": "Chistogoliki",
+      "description": "",
+      "address": "vulica Smaliačkova 9, Minsk 220034",
+      "services": [],
+      "rate": 4,
+      "reviews": [],
+      "price": 12,
+      "requests": 34
+    },
+    {
+      "id": 4,
+      "name": "Atalian Global Services",
+      "description": "",
+      "address": "Pereulok Ural'skiy 15-558, Minsk 220037",
+      "services": [],
+      "rate": 5,
+      "reviews": [],
+      "price": 75,
+      "requests": 19
+    },
+    {
+      "id": 5,
+      "name": "UborkaKvartir.by",
+      "description": "",
+      "address": "Ulitsa Gorovtsa 6, Minsk 220000",
+      "services": [],
+      "rate": 3.5,
+      "reviews": [],
+      "price": 43,
+      "requests": 56
+    }
+  ],
+  "users": [
+    {
+      "name": "Anastasiya Piulskaya",
+      "email": "workwithpiu@gmail.com",
+      "phone": "",
+      "googleId": "",
+      "facebookId": ""
+    }
+  ]
+}
