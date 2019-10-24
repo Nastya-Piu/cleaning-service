@@ -1,10 +1,10 @@
 import { FETCH_COMPANIES } from '../../store/actions/types';
-import _ from 'lodash';
 
-export default (state = {}, action) => {
+export default (state = { data: {}, params: {} }, action) => {
+
   switch (action.type) {
     case FETCH_COMPANIES:
-      return { ...action.payload };
+      return { data: { ...action.payload.data }, params: action.payload.params };
     default:
       return state;
   }

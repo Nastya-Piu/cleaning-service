@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signInGoogle, signOutGoogle } from '../../store/actions';
+import { signOutGoogle, signIn, signOut } from '../../store/actions';
 
 class GoogleAuth extends React.Component {
 
@@ -19,7 +19,7 @@ class GoogleAuth extends React.Component {
 
   onAuthChange = (isSignedIn) => {
     if(isSignedIn) {
-      this.props.signInGoogle(this.auth.currentUser.get().getId(), this.auth.currentUser.get().getBasicProfile());
+      this.props.signIn('google', this.auth.currentUser.get().getId());
     } else {
       this.props.signOutGoogle();
     }
@@ -42,7 +42,7 @@ class GoogleAuth extends React.Component {
       return (
         <button className="ui button primary" onClick={this.login}>
           <i className="icon google"></i>
-          Google Auth
+          Login with Google
         </button>
       )
     }
@@ -50,9 +50,9 @@ class GoogleAuth extends React.Component {
 
   render() {
     return (
-      <div className="item">
+      <span>
         {this.renderAuthButton()}
-      </div>
+      </span>
     );
   };
 };
@@ -62,5 +62,5 @@ const masStateToProps = state => {
 };
 
 export default connect(masStateToProps, {
-  signInGoogle, signOutGoogle
+  signOutGoogle, signIn, signOut
 })(GoogleAuth);

@@ -54,15 +54,58 @@
       "reviews": [],
       "price": 43,
       "requests": 56
+    },
+    {
+      "id": 6,
+      "name": "Pure whale",
+      "description": "",
+      "address": "vulica Kastryčnickaja 21/111, Minsk 220090",
+      "services": [],
+      "rate": 5,
+      "reviews": [],
+      "price": 78,
+      "requests": 125
     }
   ],
   "users": [
     {
+      "id": 1,
       "name": "Anastasiya Piulskaya",
       "email": "workwithpiu@gmail.com",
       "phone": "",
       "googleId": "",
-      "facebookId": ""
+      "facebookId": "",
+      "password": "qwerty"
+    },
+    {
+      "id": 2,
+      "name": "Vladimir Ivanov",
+      "email": "vladimir@gmail.com",
+      "phone": "",
+      "googleId": "100431861743963718620",
+      "facebookId": "",
+      "password": "12345"
+    },
+    {
+      "id": 3,
+      "name": "Helena Baranova",
+      "email": "baranova@gmail.com",
+      "phone": "",
+      "googleId": "",
+      "facebookId": "556614678440081",
+      "password": "1111"
+    },
+    {
+      "name": "Анастасия Пиульская",
+      "email": "piu_en_nast102@mail.ru",
+      "password": "1234567",
+      "id": 4
+    },
+    {
+      "name": "Vasilii Pupkin",
+      "email": "vasyapupkin@gmail.com",
+      "password": "1234qwerty",
+      "id": 5
     }
   ]
 }

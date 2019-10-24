@@ -5,28 +5,29 @@ import CompanyCard from './CompanyCard';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 class CompanyList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { companies: [], sort: '' };
+    this.state = { companies: null, sort: '', query: '', order: 'asc' };
   }
 
   componentDidMount() {
-    this.props.fetchCompanies();
+    setTimeout(()=> {
+      this.props.fetchCompanies();
+    }, 1000);
   }
 
   searchServices = query => {
-    this.props.fetchCompanies({ query: query.target.value });
-    // set fetch params in store
+    this.setState({ ...this.state, query: query.target.value});
+    this.props.fetchCompanies({ ...this.props.params, query: query.target.value });
   }
 
   handleChange = name => event => {
     this.setState({ ...this.state, [name]: event.target.value});
-    this.props.fetchCompanies({sort: event.target.value})
+    this.props.fetchCompanies({...this.props.params, [name]: event.target.value})
   };
 
   render() {
@@ -46,13 +47,18 @@ class CompanyList extends React.Component {
               <option value={'address'}>By address</option>
               <option value={'requests'}>By popularity</option>
             </NativeSelect>
+            &nbsp;&nbsp;
+            <NativeSelect
+              value={this.state.order}
+              onChange={this.handleChange('order')}>
+              <option value={'asc'}>Asc</option>
+              <option value={'desc'}>Desc</option>
+            </NativeSelect>
           </div>
           <Paper className="col-md-3 offset-md-6" style={{padding: '2px 4px'}}>
-            <IconButton style={{padding: 10}} aria-label="menu">
-              <MenuIcon />
-            </IconButton>
             <InputBase
               onChange={this.searchServices}
+              style={{paddingTop: 6, paddingLeft: 10}}
               placeholder="Search services"
               inputProps={{ 'aria-label': 'Search services' }}
             />
@@ -67,13 +73,18 @@ class CompanyList extends React.Component {
             return <CompanyCard key={company.id} company={company} />
           }) }
         </div>
+        {this.props.companies.length === 0 && this.state.query === '' && <div className="ui active centered inline loader"></div>}
+        {this.props.companies.length === 0  && this.state.query &&
+          <div style={{color: '#555'}} className="text-center">
+            <i style={{fontSize: '2.5em'}} class="searchengin icon"></i><br/>Sorry, not found
+          </div>}
       </>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return { companies: Object.values(state.companies) };
+  return { companies: Object.values(state.companies.data), params: state.companies.params };
 };
 
 export default connect(mapStateToProps, { fetchCompanies })(CompanyList);

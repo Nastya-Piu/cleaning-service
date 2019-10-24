@@ -22,8 +22,11 @@ const Header = () => {
               <a className="nav-link" href="#">Pricing</a>
             </li> */}
           </ul>
-          <Link to="/users/new" className="ui primary button">
+          <Link to="/users/login" className="ui primary button">
             Sign In
+          </Link>
+          <Link to="/users/register" className="ui button">
+            Sign up
           </Link>
         </div>
       </nav>

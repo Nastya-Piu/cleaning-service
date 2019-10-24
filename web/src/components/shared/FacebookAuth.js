@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
-import { signInFacebook, signOutFacebook } from '../../store/actions';
+import { signIn } from '../../store/actions';
 
 class FacebookAuth extends React.Component {
 
   responseFacebook = result => {
     if(result.userID) {
-      this.props.signInFacebook(result.userId, result);
+      this.props.signIn('facebook', result);
     }
+  }
+
+  logout = () => {
+    window.FB.logout();
   }
 
   render() {
@@ -16,13 +20,18 @@ class FacebookAuth extends React.Component {
     const { userInfo } = this.props;
     return (
       <>
-      { userInfo && <div>{userInfo.name}</div> }
+      { userInfo &&
+        <div>
+          {userInfo.name}
+          <button className="ui button" onClick={this.logout}>Logout from Facebook</button>
+        </div>
+      }
       { !userInfo && <FacebookLogin
           appId="452970722234083"
-          autoLoad={true}
+          autoLoad={false}
           fields="name,email,picture"
           callback={this.responseFacebook}
-          cssClass="ui button primary"
+          cssClass="ui button primary facebook-btn"
           icon="fa-facebook"
         />
       }
@@ -36,5 +45,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  signInFacebook, signOutFacebook
+  signIn
 })(FacebookAuth);
