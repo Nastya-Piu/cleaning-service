@@ -8,6 +8,11 @@ import history from '../history';
 
 class App extends React.Component {
 
+  componentDidMount() {
+    // get user - sessionStorage / localStorage - need isSignedIn, userInfo
+    // check roles
+  }
+
   render() {
     return (
       <Router history={history}>

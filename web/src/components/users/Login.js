@@ -3,7 +3,7 @@ import GoogleAuth from '../shared/GoogleAuth';
 import FacebookAuth from '../shared/FacebookAuth';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
-import { signIn, signOut } from '../../store/actions';
+import { signIn, signOut } from '../../store/actions/userActions';
 import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
@@ -12,8 +12,8 @@ class Login extends React.Component {
     this.props.signOut();
   }
 
-  onSubmit = (value) => {
-    this.props.signIn('form', value);
+  onSubmit = (type, value) => {
+    this.props.signIn(type, value);
   };
 
   render() {
@@ -22,8 +22,8 @@ class Login extends React.Component {
         { !this.props.isSignedIn &&
           <>
           <h1 className="text-center">Log in:</h1>
-          <GoogleAuth />
-          <FacebookAuth /><br/><br/>
+          <GoogleAuth login={true} onSubmit={this.onSubmit}/>&nbsp;
+          <FacebookAuth login={true} onSubmit={this.onSubmit}/><br/><br/>
           <LoginForm onSubmit={this.onSubmit}/>
         </>
         }

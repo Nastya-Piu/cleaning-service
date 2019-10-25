@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchCompanies } from '../../store/actions';
+import { fetchCompanies } from '../../store/actions/companyActions';
 import { connect } from 'react-redux';
 import CompanyCard from './CompanyCard';
 import Paper from '@material-ui/core/Paper';
@@ -9,34 +9,23 @@ import SearchIcon from '@material-ui/icons/Search';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 class CompanyList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { companies: null, sort: '', query: '', order: 'asc' };
-  }
 
   componentDidMount() {
-    setTimeout(()=> {
-      this.props.fetchCompanies();
-    }, 1000);
-  }
-
-  searchServices = query => {
-    this.setState({ ...this.state, query: query.target.value});
-    this.props.fetchCompanies({ ...this.props.params, query: query.target.value });
+    this.props.fetchCompanies();
   }
 
   handleChange = name => event => {
-    this.setState({ ...this.state, [name]: event.target.value});
     this.props.fetchCompanies({...this.props.params, [name]: event.target.value})
   };
 
   render() {
+    const { sort, order, query } = this.props.params;
     return (
       <>
         <div className="row">
           <div className="col-md-3" style={{padding: 0}}>
           <NativeSelect
-              value={this.state.sort}
+              value={sort}
               onChange={this.handleChange('sort')}
               name="sort"
               inputProps={{ 'aria-label': 'sort' }}
@@ -49,7 +38,7 @@ class CompanyList extends React.Component {
             </NativeSelect>
             &nbsp;&nbsp;
             <NativeSelect
-              value={this.state.order}
+              value={order}
               onChange={this.handleChange('order')}>
               <option value={'asc'}>Asc</option>
               <option value={'desc'}>Desc</option>
@@ -57,7 +46,7 @@ class CompanyList extends React.Component {
           </div>
           <Paper className="col-md-3 offset-md-6" style={{padding: '2px 4px'}}>
             <InputBase
-              onChange={this.searchServices}
+              onChange={this.handleChange('query')}
               style={{paddingTop: 6, paddingLeft: 10}}
               placeholder="Search services"
               inputProps={{ 'aria-label': 'Search services' }}
@@ -73,11 +62,10 @@ class CompanyList extends React.Component {
             return <CompanyCard key={company.id} company={company} />
           }) }
         </div>
-        {this.props.companies.length === 0 && this.state.query === '' && <div className="ui active centered inline loader"></div>}
-        {this.props.companies.length === 0  && this.state.query &&
+        {this.props.companies.length === 0 && (query ?
           <div style={{color: '#555'}} className="text-center">
-            <i style={{fontSize: '2.5em'}} class="searchengin icon"></i><br/>Sorry, not found
-          </div>}
+            <i style={{fontSize: '2.5em'}} className="searchengin icon"></i><br/>Sorry, not found
+          </div> : <div className="ui active centered inline loader"></div>)}
       </>
     )
   }

@@ -106,6 +106,12 @@
       "email": "vasyapupkin@gmail.com",
       "password": "1234qwerty",
       "id": 5
+    },
+    {
+      "googleId": "100431861743963718620",
+      "name": "Anastasiya Piulskaya",
+      "email": "workwithpiu@gmail.com",
+      "id": 6
     }
   ]
 }

@@ -18,8 +18,8 @@ class LoginForm extends React.Component {
     );
   }
 
-  onSubmit = (stream) => {
-    this.props.onSubmit(stream);
+  onSubmit = (credentials) => {
+    this.props.onSubmit('form', credentials);
   }
 
   render() {

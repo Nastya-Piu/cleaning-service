@@ -19,7 +19,7 @@ class RegisterForm extends React.Component {
   }
 
   onSubmit = (stream) => {
-    this.props.onSubmit(stream);
+    this.props.onSubmit('form', stream);
   }
 
   render() {
@@ -61,6 +61,6 @@ RegisterForm.propTypes = {
 }
 
 export default reduxForm({
-  form: 'registerForm', // DO we need this?
+  form: 'registerForm', // DO we need this in store?
   validate: validate
 })(RegisterForm);
