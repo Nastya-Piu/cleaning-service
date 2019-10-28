@@ -22,8 +22,8 @@ class Register extends React.Component {
         { !this.props.isSignedIn &&
           <>
             <h1 className="text-center">Fill in the fields, please: </h1>
-            <GoogleAuth onSubmit={this.onSubmit}/>&nbsp;
-            <FacebookAuth onSubmit={this.onSubmit}/><br/><br/>
+            <GoogleAuth onSubmit={this.onSubmit}/>
+            <FacebookAuth onSubmit={this.onSubmit}/>
             <RegisterForm onSubmit={this.onSubmit}/>
           </>
         }

@@ -2,21 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import * as emailValidator from 'email-validator';
+import Input from '../shared/Input';
 
 class LoginForm extends React.Component {
-
-  renderInput({ input, label, type, meta: { touched, error } }) {
-
-    return (
-      <div className='field'>
-        <label>{label}</label>
-        <input {...input} type={type}/>
-        {error && touched && <div className="ui pointing red basic label">
-          {error}
-        </div>}
-      </div>
-    );
-  }
 
   onSubmit = (credentials) => {
     this.props.onSubmit('form', credentials);
@@ -25,8 +13,8 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
-        <Field name="email" type="email" component={this.renderInput} label="Email"/>
-        <Field name="password" type="password" component={this.renderInput} label="Password"/>
+        <Field name="email" type="email" component={Input} label="Email"/>
+        <Field name="password" type="password" component={Input} label="Password"/>
         <button className="ui button primary">Log in</button>
       </form>
     )

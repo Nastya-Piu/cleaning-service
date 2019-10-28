@@ -57,7 +57,7 @@
     },
     {
       "id": 6,
-      "name": "Pure whale",
+      "name": "Clean whale",
       "description": "",
       "address": "vulica Kastryčnickaja 21/111, Minsk 220090",
       "services": [],
@@ -107,6 +107,12 @@
       "email": "vasyapupkin@gmail.com",
       "password": "1234qwerty",
       "id": 5
+    },
+    {
+      "googleId": "109960571707517045049",
+      "name": "настя пиу",
+      "email": "gia.gandi@gmail.com",
+      "id": 6
     }
   ],
   "serviceTypes": [
@@ -129,7 +135,8 @@
     {
       "id": 5,
       "name": "Office cleaning"
-    },{
+    },
+    {
       "id": 6,
       "name": "Dry cleaning of furniture and coatings"
     },

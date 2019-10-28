@@ -21,11 +21,11 @@ class Login extends React.Component {
       <div>
         { !this.props.isSignedIn &&
           <>
-          <h1 className="text-center">Log in:</h1>
-          <GoogleAuth login={true} onSubmit={this.onSubmit}/>&nbsp;
-          <FacebookAuth login={true} onSubmit={this.onSubmit}/><br/><br/>
-          <LoginForm onSubmit={this.onSubmit}/>
-        </>
+            <h1 className="text-center">Log in:</h1>
+            <GoogleAuth login={true} onSubmit={this.onSubmit}/>
+            <FacebookAuth login={true} onSubmit={this.onSubmit}/><br/><br/>
+            <LoginForm onSubmit={this.onSubmit}/>
+          </>
         }
         { this.props.wrongCredentials && <div>User is not exist. Please, <Link to='/users/register'>Sign up</Link> first</div> }
         { this.props.isSignedIn && <div className="text-center">

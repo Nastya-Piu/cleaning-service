@@ -45,8 +45,8 @@ export const signIn = (method, user) => {
     if(response.data.length === 0) {
       dispatch({
         type: WRONG_CREDENTIALS
-      })
-    }else {
+      });
+    } else {
       dispatch({
         type: SIGN_IN,
         payload: { user: response.data[0], params }
@@ -62,7 +62,7 @@ export const signOut = () => {
     const authInfo = getState().auth;
 
     if(authInfo.googleId) {
-      let auth = window.gapi.auth2.getAuthInstance();
+      const auth = window.gapi.auth2.getAuthInstance();
       auth.isSignedIn.listen(result => {
         if(!result) {
           dispatch({

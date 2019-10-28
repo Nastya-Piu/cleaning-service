@@ -15,6 +15,7 @@ const GoogleAuth = props => {
 
 return (
     <GoogleLogin
+      className="google-btn"
       clientId="101746452525-itbic8f4kh63q7skt62pt6dh5gdejtgk.apps.googleusercontent.com"
       buttonText={props.login ? 'Login with Google': 'Register with Google'}
       onSuccess={responseGoogle}

@@ -1,21 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = (props) => {
-  return ReactDOM.createPortal(
-    <div onClick={props.onDismiss} className="ui dimmer modals visible active">
+const Modal = ({onDismiss, title, content, actions, open}) =>
+  open
+   ? ReactDOM.createPortal(
+    <div onClick={onDismiss} className="ui dimmer modals visible active">
       <div onClick={(e)=>e.stopPropagation()} className="ui standart modal visible active">
-        <div className="header">{props.title}</div>
+        <div className="header">{title}</div>
         <div className="content">
-          {props.content}
+          {content}
         </div>
         <div className="actions">
-          {props.actions}
+          {actions}
         </div>
       </div>
     </div>,
     document.querySelector('#modal')
-  );
-};
+  ): null
+
 
 export default Modal;

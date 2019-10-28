@@ -10,7 +10,6 @@ const FacebookAuth = props => {
   }
 
   return (
-    <>
       <FacebookLogin
         appId="452970722234083"
         autoLoad={false}
@@ -20,7 +19,6 @@ const FacebookAuth = props => {
         cssClass="ui button primary facebook-btn"
         icon="fa-facebook"
       />
-    </>
   )
 }
 

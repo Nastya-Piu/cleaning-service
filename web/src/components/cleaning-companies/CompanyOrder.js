@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom';
 class CompanyOrder extends Component {
   render() {
     return (
-      <div>
-        <div className="breadcrumb">
-          <Link to="/">Back to companies</Link>&nbsp;/ Order
+      <>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <Link to="/" className="breadcrumb-item">Back to companies</Link>
+            <li className="breadcrumb-item active">Order</li>
+          </ol>
+        </nav>
+        <div>
+          <p>
+            This is the company order form!!!
+          </p>
         </div>
-        This is the company order form!!!
-      </div>
+      </>
     )
   }
 }

@@ -4,7 +4,7 @@ import {
   WRONG_CREDENTIALS,
   SIGN_OUT,
   REGISTER,
-  USER_EXISTS
+  USER_EXISTS,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   googleId: null,
   facebookId: null,
   wrongCredentials: false,
-  userExists: false
+  userExists: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
