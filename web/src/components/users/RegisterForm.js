@@ -28,7 +28,7 @@ class RegisterForm extends React.Component {
         <Field name="name" type="text" component={this.renderInput} label="Your name"/>
         <Field name="email" type="email" component={this.renderInput} label="Email"/>
         <Field name="password" type="password" component={this.renderInput} label="Password"/>
-        <Field name="password" type="password" component={this.renderInput} label="Confirm password"/>
+        <Field name="repeat_password" type="password" component={this.renderInput} label="Confirm password"/>
         <button className="ui button primary">Sign up</button>
       </form>
     )
@@ -50,7 +50,11 @@ const validate = formValues => {
   }
 
   if(!formValues.name) {
-    errors.name = "You should enter your name"
+    errors.name = "You should enter your name";
+  }
+
+  if(formValues.password && formValues.repeat_password && (formValues.password !== formValues.repeat_password)){
+    errors.repeat_password = 'Passwords should be equal';
   }
 
   return errors;

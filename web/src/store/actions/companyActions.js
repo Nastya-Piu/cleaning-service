@@ -1,5 +1,5 @@
 import {
-  FETCH_COMPANIES
+  FETCH_COMPANIES, FETCH_SERVICE_TYPES
 } from './types';
 import api from '../../api';
 
@@ -24,4 +24,20 @@ export const fetchCompanies = (params = {}) => {
       payload: { data: response.data, params: params }
     })
   };
+};
+
+export const fetchServiceTypes = () => {
+
+  return async dispatch => {
+
+    const response = await api.get('/serviceTypes');
+
+    console.log(response);
+
+    dispatch({
+      type: FETCH_SERVICE_TYPES,
+      payload: response.data
+    })
+  };
+
 };

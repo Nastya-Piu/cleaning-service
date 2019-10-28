@@ -3,7 +3,8 @@ import {
   SIGN_OUT,
   SIGN_OUT_GOOGLE,
   WRONG_CREDENTIALS,
-  REGISTER
+  REGISTER,
+  USER_EXISTS
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -89,14 +90,35 @@ export const register = (method, credentials) => {
 
   return async dispatch => {
 
-    // TODO: first we need to check if user exists depending on the method
+    let queryString = '';
+    switch(method) {
+      case 'form':
+        queryString += `?email=${credentials.email}`;
+        break;
+      case 'google':
+        queryString += `?googleId=${credentials.googleId}`;
+        break;
+      case 'facebook':
+        queryString += `?facebookId=${credentials.userID}`;
+        break;
+      default:
+        queryString = '';
+        break;
+    }
 
-    const response = await api.post('/users', credentials);
+    const userExists = await api.get('/users' + queryString);
 
-    dispatch({
-      type: REGISTER,
-      payload: response.data
-    });
-    history.push('/');
+    if(userExists.data.length){
+      dispatch({
+        type: USER_EXISTS
+      });
+    } else {
+      const response = await api.post('/users', credentials);
+      dispatch({
+        type: REGISTER,
+        payload: response.data
+      });
+      history.push('/');
+    }
   };
 };

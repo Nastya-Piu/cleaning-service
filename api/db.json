@@ -75,7 +75,8 @@
       "phone": "",
       "googleId": "",
       "facebookId": "",
-      "password": "qwerty"
+      "password": "qwerty",
+      "admin": true
     },
     {
       "id": 2,
@@ -106,12 +107,39 @@
       "email": "vasyapupkin@gmail.com",
       "password": "1234qwerty",
       "id": 5
+    }
+  ],
+  "serviceTypes": [
+    {
+      "id": 1,
+      "name": "Standard room cleanup"
     },
     {
-      "googleId": "100431861743963718620",
-      "name": "Anastasiya Piulskaya",
-      "email": "workwithpiu@gmail.com",
-      "id": 6
+      "id": 2,
+      "name": "General cleaning"
+    },
+    {
+      "id": 3,
+      "name": "Cleanup after repairs and building"
+    },
+    {
+      "id": 4,
+      "name": "Carpet cleaning"
+    },
+    {
+      "id": 5,
+      "name": "Office cleaning"
+    },{
+      "id": 6,
+      "name": "Dry cleaning of furniture and coatings"
+    },
+    {
+      "id": 7,
+      "name": "Industrial cleaning"
+    },
+    {
+      "id": 8,
+      "name": "Pool cleaning"
     }
   ]
 }

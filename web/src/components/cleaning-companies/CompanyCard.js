@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from '@material-ui/lab/Rating';
+import { Link } from 'react-router-dom'
 
 const CompanyCard = props => {
   const { company } = props;
@@ -17,7 +18,7 @@ const CompanyCard = props => {
           readOnly
           precision={0.1}
         /><br/>
-        <button className="btn btn-primary">Order</button>
+        <Link to={`/order/${company.id}`} className="btn btn-primary">Order</Link>
       </div>
     </div>
   )

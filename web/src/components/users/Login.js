@@ -27,7 +27,7 @@ class Login extends React.Component {
           <LoginForm onSubmit={this.onSubmit}/>
         </>
         }
-        {this.props.wrongCredentials && <div>User is not exist. Please, <Link to='/users/register'>Sign up</Link> first</div>}
+        { this.props.wrongCredentials && <div>User is not exist. Please, <Link to='/users/register'>Sign up</Link> first</div> }
         { this.props.isSignedIn && <div className="text-center">
           <h1>You are already signed in</h1>
           <button className="ui button" onClick={this.logout}>Logout</button>
