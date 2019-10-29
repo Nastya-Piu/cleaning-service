@@ -27,8 +27,7 @@ const Popup = (props) => {
 }
 
 Popup.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.isRequired
+  title: PropTypes.string.isRequired
 }
 
 export default Popup;

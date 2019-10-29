@@ -7,7 +7,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import { fetchCompanies } from '../../store/actions/companyActions';
 import CompanyCard from './CompanyCard';
-import Popup from '../shared/Popup';
 
 class CompanyList extends React.Component {
 
@@ -33,10 +32,10 @@ class CompanyList extends React.Component {
               inputProps={{ 'aria-label': 'sort' }}
             >
               <option value="">Sort list</option>
-              <option value={'rate'}>By rating</option>
-              <option value={'price'}>By price</option>
-              <option value={'address'}>By address</option>
-              <option value={'requests'}>By popularity</option>
+              <option value='rate'>By rating</option>
+              <option value='price'>By price</option>
+              <option value='address'>By address</option>
+              <option value='requests'>By popularity</option>
             </NativeSelect>
             <NativeSelect
               className="select-input"

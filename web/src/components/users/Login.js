@@ -1,10 +1,9 @@
 import React from 'react';
-import GoogleAuth from '../shared/GoogleAuth';
-import FacebookAuth from '../shared/FacebookAuth';
 import { connect } from 'react-redux';
-import LoginForm from './LoginForm';
-import { signIn, signOut } from '../../store/actions/userActions';
 import { Link } from 'react-router-dom';
+import { signIn, signOut } from '../../store/actions/userActions';
+import SocialAuth from '../shared/SocialAuth';
+import LoginForm from './LoginForm';
 
 class Login extends React.Component {
 
@@ -22,12 +21,11 @@ class Login extends React.Component {
         { !this.props.isSignedIn &&
           <>
             <h1 className="text-center">Log in:</h1>
-            <GoogleAuth login={true} onSubmit={this.onSubmit}/>
-            <FacebookAuth login={true} onSubmit={this.onSubmit}/><br/><br/>
+            <SocialAuth login={true} onSubmit={this.onSubmit}/>
             <LoginForm onSubmit={this.onSubmit}/>
           </>
         }
-        { this.props.wrongCredentials && <div>User is not exist. Please, <Link to='/users/register'>Sign up</Link> first</div> }
+        { this.props.wrongCredentials && <p>User doesn't exist. Please, <Link to='/users/register'>Sign up</Link> first</p> }
         { this.props.isSignedIn && <div className="text-center">
           <h1>You are already signed in</h1>
           <button className="ui button" onClick={this.logout}>Logout</button>

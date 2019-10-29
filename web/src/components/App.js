@@ -7,6 +7,8 @@ import Register from './users/Register';
 import Login from './users/Login';
 import history from '../history';
 import CompanyOrder from './cleaning-companies/CompanyOrder';
+import { UserPage } from './users/UserPage';
+import CompanyPage from './cleaning-companies/CompanyPage';
 
 class App extends React.Component {
 
@@ -22,8 +24,10 @@ class App extends React.Component {
         <Container>
           <Switch>
                 <Route path="/" exact component={CompanyList}/>
+                <Route path="/services/:id" exact component={CompanyPage}/>
                 <Route path="/users/register" exact component={Register}/>
                 <Route path="/users/login" exact component={Login}/>
+                <Route path="/users/:id" exact component={UserPage}/>
                 <Route path="/order/:id" exact component={CompanyOrder}/>
           </Switch>
         </Container>

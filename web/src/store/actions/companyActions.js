@@ -1,5 +1,5 @@
 import {
-  FETCH_COMPANIES, FETCH_SERVICE_TYPES
+  FETCH_COMPANIES, FETCH_SERVICE_TYPES, FETCH_COMPANY
 } from './types';
 import api from '../../api';
 
@@ -30,9 +30,7 @@ export const fetchServiceTypes = () => {
 
   return async dispatch => {
 
-    const response = await api.get('/serviceTypes');
-
-    console.log(response);
+    const response = await api.get('/serviceTypes')
 
     dispatch({
       type: FETCH_SERVICE_TYPES,
@@ -40,4 +38,17 @@ export const fetchServiceTypes = () => {
     })
   };
 
+};
+
+
+export const fetchCompany = (id) => {
+  return async dispatch => {
+
+    const response = await api.get(`/services?id=${id}`)
+
+    dispatch({
+      type: FETCH_COMPANY,
+      payload: response.data
+    })
+  };
 };

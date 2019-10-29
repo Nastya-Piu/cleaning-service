@@ -5,6 +5,7 @@
       "name": "BeeClean.by",
       "description": "",
       "address": "vulica Chernyshevskogo 10А, office 801, Minsk",
+      "coordinates": [53.8977036, 27.5994665],
       "services": [],
       "rate": 4.5,
       "reviews": [],
@@ -16,6 +17,7 @@
       "name": "Gubka.by",
       "description": "",
       "address": "vulica Čapajeva 3, 212, Minsk 220034",
+      "coordinates": [53.9043766, 27.5856148],
       "services": [],
       "rate": 4.2,
       "reviews": [],
@@ -27,6 +29,7 @@
       "name": "Chistogoliki",
       "description": "",
       "address": "vulica Smaliačkova 9, Minsk 220034",
+      "coordinates": [53.9108637, 27.5834593],
       "services": [],
       "rate": 4,
       "reviews": [],
@@ -38,6 +41,7 @@
       "name": "Atalian Global Services",
       "description": "",
       "address": "Pereulok Ural'skiy 15-558, Minsk 220037",
+      "coordinates": [53.9012068, 27.6044704],
       "services": [],
       "rate": 5,
       "reviews": [],
@@ -49,6 +53,7 @@
       "name": "UborkaKvartir.by",
       "description": "",
       "address": "Ulitsa Gorovtsa 6, Minsk 220000",
+      "coordinates": [53.8744762, 27.5999361],
       "services": [],
       "rate": 3.5,
       "reviews": [],
@@ -60,6 +65,7 @@
       "name": "Clean whale",
       "description": "",
       "address": "vulica Kastryčnickaja 21/111, Minsk 220090",
+      "coordinates": [53.8908143, 27.571156],
       "services": [],
       "rate": 5,
       "reviews": [],
@@ -76,43 +82,51 @@
       "googleId": "",
       "facebookId": "",
       "password": "qwerty",
-      "admin": true
+      "admin": true,
+      "profilePicURL": "https://picsum.photos/200"
     },
     {
-      "id": 2,
-      "name": "Vladimir Ivanov",
-      "email": "vladimir@gmail.com",
-      "phone": "",
-      "googleId": "100431861743963718620",
-      "facebookId": "",
-      "password": "12345"
+      "id": "556614678440081",
+      "name": "Nastya Piu",
+      "firstName": "Nastya",
+      "lastName": "Piu",
+      "email": "workwithpiu@gmail.com",
+      "profilePicURL": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=556614678440081&height=50&width=50&ext=1574933677&hash=AeS98tH11nb4D_rB",
+      "facebookId": "556614678440081"
     },
     {
-      "id": 3,
-      "name": "Helena Baranova",
-      "email": "baranova@gmail.com",
-      "phone": "",
-      "googleId": "",
-      "facebookId": "556614678440081",
-      "password": "1111"
+      "id": "109960571707517045049",
+      "name": "настя пиу",
+      "firstName": "настя",
+      "lastName": "пиу",
+      "email": "gia.gandi@gmail.com",
+      "profilePicURL": "https://lh3.googleusercontent.com/a-/AAuE7mDeXtiATdsrtS5P8igdTun7MgMmeMbcmRzopSxD=s96-c",
+      "googleId": "109960571707517045049"
+    },
+    {
+      "id": "100431861743963718620",
+      "name": "Anastasiya Piulskaya",
+      "firstName": "Anastasiya",
+      "lastName": "Piulskaya",
+      "email": "workwithpiu@gmail.com",
+      "profilePicURL": "https://lh3.googleusercontent.com/a-/AAuE7mBdymNhJ2U0NSKNo_ms1OYZBc46RuxyJ5iGWQ0=s96-c",
+      "googleId": "100431861743963718620"
+    },
+    {
+      "id": "106757560589848824641",
+      "name": "DoYeong Kim",
+      "firstName": "DoYeong",
+      "lastName": "Kim",
+      "email": "doyeong2885@gmail.com",
+      "profilePicURL": "https://lh4.googleusercontent.com/-AwYZ2T66_Ac/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3reiEkIP3KNffOTUTF-7KI8J_PHAHg/s96-c/photo.jpg",
+      "googleId": "106757560589848824641"
     },
     {
       "name": "Анастасия Пиульская",
+      "password": "1234",
+      "repeat_password": "1234",
       "email": "piu_en_nast102@mail.ru",
-      "password": "1234567",
-      "id": 4
-    },
-    {
-      "name": "Vasilii Pupkin",
-      "email": "vasyapupkin@gmail.com",
-      "password": "1234qwerty",
-      "id": 5
-    },
-    {
-      "googleId": "109960571707517045049",
-      "name": "настя пиу",
-      "email": "gia.gandi@gmail.com",
-      "id": 6
+      "id": "TR8UUvb"
     }
   ],
   "serviceTypes": [

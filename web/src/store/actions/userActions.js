@@ -4,7 +4,8 @@ import {
   SIGN_OUT_GOOGLE,
   WRONG_CREDENTIALS,
   REGISTER,
-  USER_EXISTS
+  USER_EXISTS,
+  FETCH_USER
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -20,28 +21,18 @@ export const signIn = (method, user) => {
   let queryString = '';
   let params = {};
 
-  switch(method) {
-    case 'facebook':
-      queryString = `?facebookId=${user.userID}`;
-      params['facebookId'] = user.userID;
-      break;
-    case 'google':
-      queryString = `?googleId=${user.googleId}`;
-      params['googleId'] = user.googleId;
-      break;
-    case 'form': // TODO - add check of phone or email
-      queryString = `?email=${user.email}&password=${user.password}`;
-      break;
-    default:
-      queryString = '';
-      break;
+  if(method === 'form') {
+    queryString = `?email=${user.email}&password=${user.password}`;
+  } else {
+    queryString = `?${method}=${user[method]}`;
+    params[method] = user[method];
   }
 
   queryString+= queryString ? '&limit=1' : queryString;
 
   return async dispatch => {
 
-    const response = await api.get('/users' + queryString);
+    const response = await api.get(`/users${queryString}`);
     if(response.data.length === 0) {
       dispatch({
         type: WRONG_CREDENTIALS
@@ -58,32 +49,12 @@ export const signIn = (method, user) => {
 
 export const signOut = () => {
 
-  return (dispatch, getState) => {
-    const authInfo = getState().auth;
+  return (dispatch) => {
 
-    if(authInfo.googleId) {
-      const auth = window.gapi.auth2.getAuthInstance();
-      auth.isSignedIn.listen(result => {
-        if(!result) {
-          dispatch({
-            type: SIGN_OUT
-          });
-        }
-      });
-      auth.signOut();
-    } else if(authInfo.facebookId) {
-      window.FB.logout(() => {
-        dispatch({
-          type: SIGN_OUT
-        })
-      });
-    } else {
       dispatch({
         type: SIGN_OUT
       })
     }
-
-  };
 };
 
 export const register = (method, credentials) => {
@@ -95,24 +66,27 @@ export const register = (method, credentials) => {
       case 'form':
         queryString += `?email=${credentials.email}`;
         break;
-      case 'google':
-        queryString += `?googleId=${credentials.googleId}`;
+      case 'googleId':
+        queryString += `?${method}=${credentials[method]}`;
         break;
-      case 'facebook':
-        queryString += `?facebookId=${credentials.userID}`;
+      case 'facebookId':
+        queryString += `?${method}=${credentials[method]}`;
         break;
       default:
         queryString = '';
         break;
     }
 
-    const userExists = await api.get('/users' + queryString);
+    const userExists = await api.get(`/users${queryString}`);
 
     if(userExists.data.length){
       dispatch({
         type: USER_EXISTS
       });
     } else {
+      if(!('profilePicURL' in credentials)) {
+        credentials['profilePicURL'] = "https://picsum.photos/200";
+      }
       const response = await api.post('/users', credentials);
       dispatch({
         type: REGISTER,
@@ -120,5 +94,19 @@ export const register = (method, credentials) => {
       });
       history.push('/');
     }
+  };
+};
+
+
+export const getUser = (id) => {
+
+  return async dispatch => {
+    const userInfo = await api.get(`/users?id=${id}&limit=1`);
+
+    dispatch({
+      type: FETCH_USER,
+      payload: userInfo.data[0]
+    });
+
   };
 };

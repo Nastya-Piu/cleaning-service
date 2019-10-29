@@ -1,15 +1,14 @@
 import React from 'react';
-import GoogleAuth from '../shared/GoogleAuth';
-import FacebookAuth from '../shared/FacebookAuth';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { register, signOut } from '../../store/actions/userActions';
 import RegisterForm from './RegisterForm';
-import { Link } from 'react-router-dom';
+import SocialAuth from '../shared/SocialAuth';
 
 class Register extends React.Component {
 
-  onSubmit = (method, value) => {
-    this.props.register(method, value);
+  onSubmit = ( method, profile) => {
+    this.props.register(method, profile);
   };
 
   logout = () => {
@@ -22,12 +21,11 @@ class Register extends React.Component {
         { !this.props.isSignedIn &&
           <>
             <h1 className="text-center">Fill in the fields, please: </h1>
-            <GoogleAuth onSubmit={this.onSubmit}/>
-            <FacebookAuth onSubmit={this.onSubmit}/>
+            <SocialAuth onSubmit={this.onSubmit}/>
             <RegisterForm onSubmit={this.onSubmit}/>
           </>
         }
-        { this.props.userExists && <div>User is already exists. Please, <Link to='/users/login'>Login</Link></div>}
+        { this.props.userExists && <p>User is already exists. Please, <Link to='/users/login'>Login</Link></p>}
         { this.props.isSignedIn &&
           <div className="text-center">
             <h1>You are already signed in</h1>

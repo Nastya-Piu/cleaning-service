@@ -5,6 +5,7 @@ import {
   SIGN_OUT,
   REGISTER,
   USER_EXISTS,
+  FETCH_USER,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -21,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
     case SIGN_IN:
       return {...state, isSignedIn: true, userInfo: action.payload.user, wrongCredentials: false, ...action.payload.params, userExists: false };
     case SIGN_OUT:
-      return {...state, isSignedIn: false, facebookId: null, userInfo: null, googleId: null};
+      return {...state, ...INITIAL_STATE};
     case SIGN_OUT_GOOGLE:
       return {...state, isSignedIn: false, googleId: null, userInfo: null };
     case REGISTER:
@@ -30,6 +31,8 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, isSignedIn: false, wrongCredentials: true,  userExists: false }
     case USER_EXISTS:
       return {...state, isSignedIn: false, userExists: true, wrongCredentials: false }
+    case FETCH_USER:
+      return {...state, userInfo: action.payload }
     default:
       return state;
   }
