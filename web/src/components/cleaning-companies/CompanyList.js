@@ -5,13 +5,23 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import NativeSelect from '@material-ui/core/NativeSelect';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faSadTear } from '@fortawesome/free-solid-svg-icons';
 import { fetchCompanies } from '../../store/actions/companyActions';
 import CompanyCard from './CompanyCard';
+
 
 class CompanyList extends React.Component {
 
   componentDidMount() {
     this.props.fetchCompanies();
+    window.navigator.geolocation.getCurrentPosition( // TODO: count distance between user coords and services coords
+      (position) => {
+        // position.coords.latitude
+      },
+      (err) => {
+      }
+    );
   }
 
   handleChange = name => event => {
@@ -20,11 +30,15 @@ class CompanyList extends React.Component {
 
   render() {
     const { sort, order, query } = this.props.params;
+    if(this.props.error) {
+      return <div className="text-danger">Sorry, there is server error</div>;
+    }
     return (
       <>
         <div className="row">
           <div className="col-md-3" style={{padding: 0}}>
           <NativeSelect
+              style={{backgroundColor: "white"}}
               className="select-input"
               value={sort}
               onChange={this.handleChange('sort')}
@@ -50,7 +64,6 @@ class CompanyList extends React.Component {
               onChange={this.handleChange('query')}
               style={{paddingTop: 6, paddingLeft: 10}}
               placeholder="Search services"
-              inputProps={{ 'aria-label': 'Search services' }}
             />
             <IconButton style={{padding: 10}} className="float-right" aria-label="search">
               <SearchIcon />
@@ -64,15 +77,15 @@ class CompanyList extends React.Component {
         </div>
         { this.props.companies.length === 0 && (query ?
           <div style={{color: '#555'}} className="text-center">
-            <i style={{fontSize: '2.5em'}} className="searchengin icon"></i><br/>Sorry, not found
-          </div> : <div className="ui active centered inline loader"></div>) }
+            <FontAwesomeIcon icon={faSadTear} size="lg"/>Sorry, not found
+          </div> : <div className="text-center"><FontAwesomeIcon icon={faSpinner} spin /></div>) }
       </>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return { companies: Object.values(state.companies.data), params: state.companies.params };
+  return { companies: Object.values(state.companies.data), params: state.companies.params, error: state.companies.error };
 };
 
 export default connect(mapStateToProps, { fetchCompanies })(CompanyList);

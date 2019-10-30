@@ -1,6 +1,8 @@
 export const FETCH_COMPANIES = 'FETCH_COMPANIES';
 export const FETCH_COMPANY = 'FETCH_COMPANY';
 export const FETCH_SERVICE_TYPES = 'FETCH_SERVICE_TYPES';
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const CREATE_REQUEST = 'CREATE_REQUEST';
 
 export const SIGN_OUT_GOOGLE = 'SIGN_OUT_GOOGLE';
 export const SIGN_IN = 'SIGN_IN';

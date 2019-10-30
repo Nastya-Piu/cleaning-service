@@ -28,7 +28,7 @@ class Login extends React.Component {
         { this.props.wrongCredentials && <p>User doesn't exist. Please, <Link to='/users/register'>Sign up</Link> first</p> }
         { this.props.isSignedIn && <div className="text-center">
           <h1>You are already signed in</h1>
-          <button className="ui button" onClick={this.logout}>Logout</button>
+          <button className="btn btn-outline-secondary" onClick={this.logout}>Logout</button>
         </div>}
 
       </div>

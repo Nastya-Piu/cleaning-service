@@ -62,19 +62,11 @@ export const register = (method, credentials) => {
   return async dispatch => {
 
     let queryString = '';
-    switch(method) {
-      case 'form':
-        queryString += `?email=${credentials.email}`;
-        break;
-      case 'googleId':
-        queryString += `?${method}=${credentials[method]}`;
-        break;
-      case 'facebookId':
-        queryString += `?${method}=${credentials[method]}`;
-        break;
-      default:
-        queryString = '';
-        break;
+
+    if(method === 'form') {
+      queryString = `?email=${credentials.email}&password=${credentials.password}`;
+    } else {
+      queryString = `?${method}=${credentials[method]}`;
     }
 
     const userExists = await api.get(`/users${queryString}`);

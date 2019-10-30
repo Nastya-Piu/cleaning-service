@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import * as emailValidator from 'email-validator';
-import Input from '../shared/Input';
+import { required, email, validateForm } from 'redux-form-validators'
+import Input from '../shared/form/Input';
 
 class LoginForm extends React.Component {
 
@@ -12,31 +12,19 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="needs-validation" noValidate>
         <Field name="email" type="email" component={Input} label="Email"/>
         <Field name="password" type="password" component={Input} label="Password"/>
-        <button className="ui button primary">Log in</button>
+        <button className="btn btn-primary">Log in</button>
       </form>
     )
   }
-
 }
 
-const validate = formValues => {
-  const errors = {};
-
-  if(!formValues.email) {
-    errors.email = "You must enter email";
-  } else if(!emailValidator.validate(formValues.email)) {
-    errors.email = "Please, enter a valid email";
-  }
-
-  if(!formValues.password) {
-    errors.password = "You must enter a password";
-  }
-
-  return errors;
-};
+const validate = validateForm({
+  password: [required({msg: "You must enter a password"})],
+  email: [required({msg: "You must enter email"}), email({msg: "Please, enter a valid email"})],
+});
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired

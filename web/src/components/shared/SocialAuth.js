@@ -15,24 +15,24 @@ const SocialAuth = props => {
 
   return (
     <div className="social-buttons">
-    <SocialLogin
-      provider='facebook'
-      appId='452970722234083'
-      callback={onSubmitAuth('facebookId')}
-    >
-      <button className="btn btn-primary"><FontAwesomeIcon icon={faFacebookF}/>
-       { props.login ? "Login with Facebook": "Register with Facebook"}
-      </button>
-    </SocialLogin>
-    <SocialLogin
-      provider='google'
-      appId='101746452525-itbic8f4kh63q7skt62pt6dh5gdejtgk.apps.googleusercontent.com'
-      callback={onSubmitAuth('googleId')}
-    >
-      <button className="btn btn-primary"><FontAwesomeIcon icon={faGoogle}/>
-        { props.login ? "Login with Google": "Register with Google"}
-      </button>
-    </SocialLogin>
+      <SocialLogin
+        provider='facebook'
+        appId='452970722234083'
+        callback={onSubmitAuth('facebookId')}
+      >
+        <button className="btn btn-primary"><FontAwesomeIcon icon={faFacebookF}/>
+        { props.login ? "Login with Facebook": "Register with Facebook"}
+        </button>
+      </SocialLogin>
+      <SocialLogin
+        provider='google'
+        appId='101746452525-itbic8f4kh63q7skt62pt6dh5gdejtgk.apps.googleusercontent.com'
+        callback={onSubmitAuth('googleId')}
+      >
+        <button className="btn btn-primary"><FontAwesomeIcon icon={faGoogle}/>
+          { props.login ? "Login with Google": "Register with Google"}
+        </button>
+      </SocialLogin>
     </div>
   )
 }

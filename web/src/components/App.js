@@ -1,14 +1,10 @@
 import React from 'react';
-import Header from './shared/Header';
-import CompanyList from '../components/cleaning-companies/CompanyList';
 import { Router, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Register from './users/Register';
-import Login from './users/Login';
+import Header from './shared/Header';
 import history from '../history';
-import CompanyOrder from './cleaning-companies/CompanyOrder';
-import { UserPage } from './users/UserPage';
-import CompanyPage from './cleaning-companies/CompanyPage';
+import Notfound from './shared/NotFound';
+import { routes } from '../routes';
 
 class App extends React.Component {
 
@@ -23,12 +19,8 @@ class App extends React.Component {
         <Header />
         <Container>
           <Switch>
-                <Route path="/" exact component={CompanyList}/>
-                <Route path="/services/:id" exact component={CompanyPage}/>
-                <Route path="/users/register" exact component={Register}/>
-                <Route path="/users/login" exact component={Login}/>
-                <Route path="/users/:id" exact component={UserPage}/>
-                <Route path="/order/:id" exact component={CompanyOrder}/>
+                {routes.map((route) => <Route exact key={route.path} {...route} />)}
+                <Route component={Notfound} />
           </Switch>
         </Container>
       </Router>

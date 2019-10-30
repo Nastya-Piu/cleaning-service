@@ -1,44 +1,4 @@
-input {
-  border-radius: 0;
-}
-
-.form-control {
-  border-radius: 0;
-  background-clip: border-box;
-}
-
-button, .btn {
-  border-radius: 0;
-}
-
-.container {
-  padding: 20px 0;
-}
-
-.MuiNativeSelect-select:focus {
-  background-color: white !important;
-}
-
-.row {
-  margin: 0;
-}
-
-.facebook-btn {
-  margin: 0 10px !important;
-  padding: 14px !important;
-  i {
-    margin-right: 10px;
-  }
-}
-
-.google-btn {
-  box-shadow: none !important;
-  background: #eee !important;
-  border-radius: 4px !important;
-  >div {
-    background: #eee !important;
-  }
-}
+@import '~bootstrap/scss/bootstrap.scss';
 
 .breadcrumb {
   background-color: #f8f9fa;
@@ -88,10 +48,6 @@ button, .btn {
   }
 }
 
-.breadcrumb {
-  background-color: #f8f9fa !important;
-  border-radius: 0 !important;
-}
 
 .company-profile-image {
   margin: 10px 0
@@ -102,5 +58,49 @@ button, .btn {
   -webkit-filter:grayscale(100%);
 }
 
+.breadcrumb {
+  background-color: #f8f9fa;
+  border-radius: 0;
+}
 
-@import '~bootstrap/scss/bootstrap.scss';
+input {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0;
+  background-clip: border-box;
+}
+
+button, .btn {
+  border-radius: 0;
+}
+
+.container {
+  padding: 20px 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.react-time-picker__clock-button.react-time-picker__button {
+  display: none;
+}
+
+.react-time-picker__wrapper{
+  padding: 5px;
+  border-color: #eee;
+}
+
+.react-time-picker__clear-button.react-time-picker__button {
+  padding: 5px;
+}
+
+.order-form {
+  margin-bottom: 100px;
+}
+
+.invalid-feedback {
+  display: block;
+}

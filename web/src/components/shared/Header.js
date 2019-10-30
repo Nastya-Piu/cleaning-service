@@ -25,7 +25,7 @@ const Header = () => {
               <Link to={`/users/${userInfo.id}`} className="user-profile-link">
                 {userInfo.name}
               </Link>
-              <img className="header-profile-image" src={userInfo.profilePicURL}/>
+              <img alt="Cleaning services" className="header-profile-image" src={userInfo.profilePicURL}/>
               <button className="btn btn-outline-primary" onClick={() => dispatch({type: SIGN_OUT})}>Logout</button>
             </div>
             :

@@ -1,43 +1,26 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Rating from '@material-ui/lab/Rating';
-import { Link } from 'react-router-dom';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Rating from '@material-ui/lab/Rating'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 import Popup from '../shared/Popup';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import AddressMap from '../shared/AddressMap';
 
 const CompanyCard = props => {
 
-  const { company } = props;
-
-  const renderMap = () => {
-
-    return (
-      <YMaps>
-        {company.address}
-        <div className="map-container">
-          <Map defaultState={{ center: [53.900595, 27.559007], zoom: 10 }}>
-            <Placemark defaultGeometry={company.coordinates} />
-          </Map>
-        </div>
-      </YMaps>
-    )
-  };
-
-
-  const { id, name, address, rate } = company;
+  const { id, name, address, rate, coordinates } = props.company;
 
   return (
     <div className="card col-md-3 col-sm-6 .col-6" style={{padding: 0}}>
-      <img src={`https://picsum.photos/id/${id+Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={company.name}/>
+      <img src={`https://picsum.photos/id/${id+Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name}/>
       <div className="card-body">
         <h5 className="card-title">
           <Link to={`/services/${id}`}>
             {name}
           </Link>
         </h5>
-        <Popup title={`${name} address`} content={renderMap()}>
+        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates}/>}>
           <span className="company-address"><FontAwesomeIcon icon={faMapMarkerAlt}/> {address}</span>
         </Popup>
         <Rating

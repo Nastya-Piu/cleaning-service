@@ -1,22 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import * as emailValidator from 'email-validator';
+import { required, email, validateForm, confirmation } from 'redux-form-validators'
+import Input from '../shared/form/Input';
 
 class RegisterForm extends React.Component {
-
-  renderInput({ input, label, type, meta: { touched, error } }) {
-
-    return (
-      <div className='field'>
-        <label>{label}</label>
-        <input {...input} type={type}/>
-        {error && touched && <div className="ui pointing red basic label">
-          {error}
-        </div>}
-      </div>
-    );
-  }
 
   onSubmit = (stream) => {
     this.props.onSubmit('form', stream);
@@ -24,41 +12,24 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
-        <Field name="name" type="text" component={this.renderInput} label="Your name"/>
-        <Field name="email" type="email" component={this.renderInput} label="Email"/>
-        <Field name="password" type="password" component={this.renderInput} label="Password"/>
-        <Field name="repeat_password" type="password" component={this.renderInput} label="Confirm password"/>
-        <button className="ui button primary">Sign up</button>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="needs-validation" noValidate>
+        <Field name="name" type="text" component={Input} label="Your name"/>
+        <Field name="email" type="email" component={Input} label="Email"/>
+        <Field name="password" type="password" component={Input} label="Password"/>
+        <Field name="repeat_password" type="password" component={Input} label="Confirm password"/>
+        <button className="btn btn-primary">Sign up</button>
       </form>
     )
   }
 
 }
 
-const validate = formValues => {
-  const errors = {};
-
-  if(!formValues.email) {
-    errors.email = "You must enter email";
-  } else if(!emailValidator.validate(formValues.email)) {
-    errors.email = "Please, enter a valid email";
-  }
-
-  if(!formValues.password) {
-    errors.password = "You must enter a password";
-  }
-
-  if(!formValues.name) {
-    errors.name = "You should enter your name";
-  }
-
-  if(formValues.password && formValues.repeat_password && (formValues.password !== formValues.repeat_password)){
-    errors.repeat_password = 'Passwords should be equal';
-  }
-
-  return errors;
-};
+const validate = validateForm({
+  name: [ required({msg: "You should enter your name"})],
+  email: [required({msg: "You must enter email"}), email({msg: "Please, enter a valid email"})],
+  password: [required({msg: "You must enter a password"})],
+  // repeat_password: [confirmation({field: "password", msg: "Passwords should be equal"})]  TODO: check why its not works!
+});
 
 RegisterForm.propTypes = {
   onSubmit: PropTypes.func.isRequired

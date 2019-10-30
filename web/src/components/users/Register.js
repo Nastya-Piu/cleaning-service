@@ -25,11 +25,11 @@ class Register extends React.Component {
             <RegisterForm onSubmit={this.onSubmit}/>
           </>
         }
-        { this.props.userExists && <p>User is already exists. Please, <Link to='/users/login'>Login</Link></p>}
+        { this.props.userExists && <p className="text-danger text-center">User is already exists. Please, <Link to='/users/login'>Login</Link></p>}
         { this.props.isSignedIn &&
           <div className="text-center">
             <h1>You are already signed in</h1>
-            <button className="ui button" onClick={this.logout}>Logout</button>
+            <button className="btn btn-outline-secondary" onClick={this.logout}>Logout</button>
           </div>}
       </div>
     )
