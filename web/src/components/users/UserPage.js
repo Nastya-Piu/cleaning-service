@@ -1,28 +1,43 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getUser } from '../../store/actions/userActions';
+import { Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'
+import LoginFirst from '../shared/LoginFirst';
 
-export class UserPage extends Component {
-
-  componentDidMount() {
-    // fetch user info
-    console.log(this.props);
-    // this.props.getUser(this.props.match.params.id)
-  }
-
+class UserPage extends Component {
 
   render() {
+    const { user } = this.props;
+
+    if (!user) {
+      return <LoginFirst />
+    }
+
     return (
-      <div>
-        This is profile page
-        {this.props && this.props.userInfo && this.props.userInfo.name}
-      </div>
+      <Row>
+        <Col md={3}>
+          <img width="70%" src={user.profilePicURL ? user.profilePicURL : `https://picsum.photos/id/${user.id}/200/200?grayscale`} />
+        </Col>
+        <Col md={9}>
+          <h4>{user.name}</h4>
+          <div>{user.email}</div>
+          {user.address && <div><FontAwesomeIcon icon={faMapMarker} /> {user.address} </div>}
+          <div className="float-right">
+            <Link to={`/users/${user.id}/edit`}><FontAwesomeIcon icon={faPencilAlt} /></Link>
+          </div>
+        </Col>
+
+
+      </Row>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return { userInfo: state.auth.userInfo }
-}
+const mapStateToProps = (state) => ({
+  user: state.auth.userInfo
+})
 
-export default connect(mapStateToProps, { getUser })(UserPage)
+export default connect(mapStateToProps)(UserPage)
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
@@ -25,20 +26,23 @@ class CompanyList extends React.Component {
   }
 
   handleChange = name => event => {
-    this.props.fetchCompanies({...this.props.params, [name]: event.target.value})
+    this.props.fetchCompanies({ ...this.props.params, [name]: event.target.value })
   };
 
   render() {
     const { sort, order, query } = this.props.params;
-    if(this.props.error) {
+    if (this.props.error) {
       return <div className="text-danger">Sorry, there is server error</div>;
     }
     return (
       <>
+        <div>
+          <Link to="/services/new" className="btn btn-default">Register company</Link>
+        </div>
         <div className="row">
-          <div className="col-md-3" style={{padding: 0}}>
-          <NativeSelect
-              style={{backgroundColor: "white"}}
+          <div className="col-md-3" style={{ padding: 0 }}>
+            <NativeSelect
+              style={{ backgroundColor: "white" }}
               className="select-input"
               value={sort}
               onChange={this.handleChange('sort')}
@@ -59,26 +63,26 @@ class CompanyList extends React.Component {
               <option value={'desc'}>Desc</option>
             </NativeSelect>
           </div>
-          <Paper className="col-md-3 offset-md-6" style={{padding: '2px 4px'}}>
+          <Paper className="col-md-3 offset-md-6" style={{ padding: '2px 4px' }}>
             <InputBase
               onChange={this.handleChange('query')}
-              style={{paddingTop: 6, paddingLeft: 10}}
+              style={{ paddingTop: 6, paddingLeft: 10 }}
               placeholder="Search services"
             />
-            <IconButton style={{padding: 10}} className="float-right" aria-label="search">
+            <IconButton style={{ padding: 10 }} className="float-right" aria-label="search">
               <SearchIcon />
             </IconButton>
           </Paper>
         </div>
         <div className="row">
-          { this.props.companies.map(company => {
-            return <CompanyCard key={company.id} company={company}/>
-          }) }
+          {this.props.companies.map(company => {
+            return <CompanyCard key={company.id} company={company} />
+          })}
         </div>
-        { this.props.companies.length === 0 && (query ?
-          <div style={{color: '#555'}} className="text-center">
-            <FontAwesomeIcon icon={faSadTear} size="lg"/>Sorry, not found
-          </div> : <div className="text-center"><FontAwesomeIcon icon={faSpinner} spin /></div>) }
+        {this.props.companies.length === 0 && (query ?
+          <div style={{ color: '#555' }} className="text-center">
+            <FontAwesomeIcon icon={faSadTear} size="lg" />Sorry, not found
+          </div> : <div className="text-center"><FontAwesomeIcon icon={faSpinner} spin /></div>)}
       </>
     )
   }

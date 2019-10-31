@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    node: true,
   },
   extends: [
     'airbnb',
@@ -21,6 +22,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    "linebreak-style": 0
+    'import/order': ['error', { 'groups': ['index', 'sibling', 'parent', 'internal', 'external', 'builtin'] }]
   },
-};
+}

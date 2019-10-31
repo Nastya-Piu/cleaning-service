@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
 
-const Select = ({label, options, input, meta: { error, touched } }) => {
+const Select = ({ label, options, input, meta: { error, touched } }) => {
   return (
     <Form.Group>
       <Form.Label>{label}</Form.Label>
@@ -9,7 +9,7 @@ const Select = ({label, options, input, meta: { error, touched } }) => {
         <option value="">{label}</option>
         {options && options.length && options.map(option => <option key={option.id} value={option.id}>{option.name}</option>)}
       </Form.Control>
-      {error && touched && <div className="invalid-feedback">
+      {error && touched && <div className="invalid-form">
         {error}
       </div>}
     </Form.Group>

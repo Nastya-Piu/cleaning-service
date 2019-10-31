@@ -1,5 +1,5 @@
 import {
-  FETCH_COMPANIES, FETCH_SERVICE_TYPES, FETCH_COMPANY, FETCH_ERROR, CREATE_REQUEST
+  FETCH_COMPANIES, FETCH_SERVICE_TYPES, FETCH_COMPANY, FETCH_ERROR, CREATE_REQUEST, ADD_REVIEW, FETCH_REVIEWS
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -16,7 +16,7 @@ export const fetchCompanies = (params = {}) => {
     };
 
     Object.keys(searchParams).forEach(key => {
-      if(params[key]) {
+      if (params[key]) {
         paramsString = `${(paramsString ? paramsString + '&' : '?')}${searchParams[key]}=${params[key]}`;
       }
     });
@@ -76,4 +76,32 @@ export const createRequest = (request) => {
     })
     history.push('/order/success');
   };
+}
+
+
+export const fetchReviews = serviceId => {
+
+  return async dispatch => {
+
+    const response = await api.get(`/reviews?serviceId=${serviceId}`)
+
+    dispatch({
+      type: FETCH_REVIEWS,
+      payload: response.data
+    })
+  };
+
+}
+
+export const addReview = (review) => {
+  return async dispatch => {
+    const response = await api.post(`/reviews`, review)
+
+    dispatch({
+      type: ADD_REVIEW,
+      payload: response.data
+    })
+
+  }
+
 }

@@ -12,24 +12,24 @@ const CompanyCard = props => {
   const { id, name, address, rate, coordinates } = props.company;
 
   return (
-    <div className="card col-md-3 col-sm-6 .col-6" style={{padding: 0}}>
-      <img src={`https://picsum.photos/id/${id+Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name}/>
+    <div className="card col-md-3 col-sm-6 .col-6" style={{ padding: 0 }}>
+      <img src={`https://picsum.photos/id/${id + Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name} />
       <div className="card-body">
         <h5 className="card-title">
           <Link to={`/services/${id}`}>
             {name}
           </Link>
         </h5>
-        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates}/>}>
-          <span className="company-address"><FontAwesomeIcon icon={faMapMarkerAlt}/> {address}</span>
+        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates} />}>
+          <span className="company-address"><FontAwesomeIcon icon={faMapMarkerAlt} /> {address}</span>
         </Popup>
         <Rating
           name="customized-empty"
           value={rate}
           readOnly
           precision={0.1}
-        /><br/>
-        <Link to={`/order/${id}`} className="btn btn-primary">Order</Link>
+        />
+        <Link to={`/order/${id}`} className="btn btn-primary float-right">Order</Link>
       </div>
     </div>
   )
@@ -37,7 +37,7 @@ const CompanyCard = props => {
 
 CompanyCard.propTypes = {
   company: PropTypes.shape({
-    id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number]),
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     name: PropTypes.string,
     address: PropTypes.string,
     rate: PropTypes.number

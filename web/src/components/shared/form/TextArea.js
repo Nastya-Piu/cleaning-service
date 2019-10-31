@@ -1,12 +1,12 @@
 import React from 'react'
 
-const TextArea = ({label, input, meta: { error, touched} }) => {
+const TextArea = ({ label, input, meta: { error, touched } }) => {
 
   return (
     <div className="form-group">
       <label>{label}</label>
-      <textarea className="form-control" {...input}/>
-      {error && touched && <div className="invalid-feedback">
+      <textarea className="form-control" {...input} />
+      {error && touched && <div className="invalid-form">
         {error}
       </div>}
     </div>

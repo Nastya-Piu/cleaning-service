@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "BeeClean.by",
-      "description": "",
+      "description": "Rendered her for put improved concerns his. Ladies bed wisdom theirs mrs men months set. Everything so dispatched as it increasing pianoforte. Hearing now saw perhaps minutes herself his. Of instantly excellent therefore difficult he northward. Joy green but least marry rapid quiet but. Way devonshire introduced expression saw travelling affronting. Her and effects affixed pretend account ten natural. Need eat week even yet that. Incommode delighted he resolving sportsmen do in listening.",
       "address": "vulica Chernyshevskogo 10А, office 801, Minsk",
       "coordinates": [
         53.8977036,
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "name": "Gubka.by",
-      "description": "",
+      "description": "Do greatest at in learning steepest. Breakfast extremity suffering one who all otherwise suspected. He at no nothing forbade up moments. Wholly uneasy at missed be of pretty whence. John way sir high than law who week. Surrounded prosperous introduced it if is up dispatched. Improved so strictly produced answered elegance is. ",
       "address": "vulica Čapajeva 3, 212, Minsk 220034",
       "coordinates": [
         53.9043766,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "name": "Chistogoliki",
-      "description": "",
+      "description": "Name were we at hope. Remainder household direction zealously the unwilling bed sex. Lose and gay ham sake met that. Stood her place one ten spoke yet. Head case knew ever set why over. Marianne returned of peculiar replying in moderate. Roused get enable garret estate old county. Entreaties you devonshire law dissimilar terminated.",
       "address": "vulica Smaliačkova 9, Minsk 220034",
       "coordinates": [
         53.9108637,
@@ -48,7 +48,7 @@
     {
       "id": 4,
       "name": "Atalian Global Services",
-      "description": "",
+      "description": "In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance imprudence particular had eat unsatiable. ",
       "address": "Pereulok Ural'skiy 15-558, Minsk 220037",
       "coordinates": [
         53.9012068,
@@ -63,7 +63,7 @@
     {
       "id": 5,
       "name": "UborkaKvartir.by",
-      "description": "",
+      "description": "Fat new smallness few supposing suspicion two. Course sir people worthy horses add entire suffer. How one dull get busy dare far. At principle perfectly by sweetness do. As mr started arrival subject by believe. Strictly numerous outlived kindness whatever on we no on addition. ",
       "address": "Ulitsa Gorovtsa 6, Minsk 220000",
       "coordinates": [
         53.8744762,
@@ -78,7 +78,7 @@
     {
       "id": 6,
       "name": "Clean whale",
-      "description": "",
+      "description": "Ham followed now ecstatic use speaking exercise may repeated. Himself he evident oh greatly my on inhabit general concern. It earnest amongst he showing females so improve in picture. Mrs can hundred its greater account. Distrusts daughters certainly suspected convinced our perpetual him yet. Words did noise taken right state are since. ",
       "address": "vulica Kastryčnickaja 21/111, Minsk 220090",
       "coordinates": [
         53.8908143,
@@ -127,8 +127,11 @@
       "firstName": "Anastasiya",
       "lastName": "Piulskaya",
       "email": "workwithpiu@gmail.com",
-      "profilePicURL": "https://lh3.googleusercontent.com/a-/AAuE7mBdymNhJ2U0NSKNo_ms1OYZBc46RuxyJ5iGWQ0=s96-c",
-      "googleId": "100431861743963718620"
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/29d96911-aadc-4ed0-94c9-f5ed8c903013xzk1q8WbxLk.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191031T151400Z&X-Amz-Expires=900&X-Amz-Signature=c6a9aac8bbb41d26850e478d107371464119f1e85bb016362e5675b3f0a279ff&X-Amz-SignedHeaders=host",
+      "googleId": "100431861743963718620",
+      "address": "Minsk,. st.Korgenevskogo,33-1-65",
+      "password": "1234",
+      "repeatPassword": "1234"
     },
     {
       "id": "106757560589848824641",
@@ -138,6 +141,14 @@
       "email": "doyeong2885@gmail.com",
       "profilePicURL": "https://lh4.googleusercontent.com/-AwYZ2T66_Ac/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3reiEkIP3KNffOTUTF-7KI8J_PHAHg/s96-c/photo.jpg",
       "googleId": "106757560589848824641"
+    },
+    {
+      "name": "Анастасия Пиульская",
+      "email": "piu_en_nast102@mail.ru",
+      "password": "zxcv",
+      "repeatPassword": "zxcv",
+      "profilePicURL": "https://picsum.photos/200",
+      "id": "Hb4N-Aj"
     }
   ],
   "serviceTypes": [
@@ -189,6 +200,91 @@
       "serviceId": "5",
       "userId": 1,
       "id": 1
+    },
+    {
+      "dates": [
+        "2019-10-01T09:00:00.000Z",
+        "2019-10-22T09:00:00.000Z"
+      ],
+      "time": "05:05",
+      "address": "tjretjertjretj",
+      "cleanType": "3",
+      "description": "ertjertjertjertj",
+      "created": "2019-10-30T15:50:31.858Z",
+      "serviceId": "4",
+      "userId": "556614678440081",
+      "id": 2
+    }
+  ],
+  "reviews": [
+    {
+      "rating": 4,
+      "title": "sdfgsdgf",
+      "description": "sdfgsdfgsdgf",
+      "serviceId": 4,
+      "created": "2019-10-31T15:29:02.905Z",
+      "userId": "100431861743963718620",
+      "id": 1
+    },
+    {
+      "title": "qfqwefq",
+      "description": "wefqwefqwefqwef",
+      "serviceId": 4,
+      "created": "2019-10-31T15:30:59.884Z",
+      "userId": "100431861743963718620",
+      "id": 2
+    },
+    {
+      "title": "ewrgwergw",
+      "description": "ergwergwerg",
+      "serviceId": 4,
+      "created": "2019-10-31T15:32:17.565Z",
+      "userId": "100431861743963718620",
+      "id": 3
+    },
+    {
+      "title": "Testing",
+      "description": "wefwefwefwefwefwefwe",
+      "rating": 4,
+      "serviceId": 4,
+      "created": "2019-10-31T15:34:29.133Z",
+      "userId": "100431861743963718620",
+      "id": 4
+    },
+    {
+      "title": "Anastasiya's questionnaire",
+      "description": "dvzsdfbgsdf",
+      "rating": 4,
+      "serviceId": 4,
+      "created": "2019-10-31T15:34:59.972Z",
+      "userId": "109960571707517045049",
+      "id": 5
+    },
+    {
+      "rating": 4,
+      "title": "Anastasiya's questionnaire",
+      "description": "wefwef",
+      "serviceId": 4,
+      "created": "2019-10-31T15:43:01.352Z",
+      "userId": "100431861743963718620",
+      "id": 6
+    },
+    {
+      "rating": 4,
+      "title": "My new review",
+      "description": "C\\fsdgkjs;dkhj",
+      "serviceId": 4,
+      "created": "2019-10-31T15:47:02.080Z",
+      "userId": "100431861743963718620",
+      "id": 7
+    },
+    {
+      "title": "wefwefwef",
+      "description": "wefwef",
+      "serviceId": 3,
+      "created": "2019-10-31T15:48:14.182Z",
+      "userId": "109960571707517045049",
+      "id": 8
     }
   ]
 }

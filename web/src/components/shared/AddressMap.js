@@ -14,8 +14,8 @@ const AddressMap = props => {
   };
 
   useEffect(() => {// TODO: set up geocoding for getting coordinates by address
-    if(address) {
-      console.log('Geocode');
+    if (address) {
+      // Geocode
     }
   })
 
@@ -30,7 +30,7 @@ const AddressMap = props => {
     <YMaps>
       {loaded && <div className="text-center"><FontAwesomeIcon icon={faSpinner} spin /></div>}
       <div className="map-container">
-        <Map onLoad={(ymaps) => { setLoaded(false); geocode(ymaps)}} defaultState={mapParams}>
+        <Map onLoad={(ymaps) => { setLoaded(false); geocode(ymaps) }} defaultState={mapParams}>
           <Placemark defaultGeometry={coordinates} />
         </Map>
       </div>

@@ -5,7 +5,8 @@ import {
   WRONG_CREDENTIALS,
   REGISTER,
   USER_EXISTS,
-  FETCH_USER
+  FETCH_USER,
+  UPDATE_USER
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -21,19 +22,19 @@ export const signIn = (method, user) => {
   let queryString = '';
   let params = {};
 
-  if(method === 'form') {
+  if (method === 'form') {
     queryString = `?email=${user.email}&password=${user.password}`;
   } else {
     queryString = `?${method}=${user[method]}`;
     params[method] = user[method];
   }
 
-  queryString+= queryString ? '&limit=1' : queryString;
+  queryString += queryString ? '&limit=1' : queryString;
 
   return async dispatch => {
 
     const response = await api.get(`/users${queryString}`);
-    if(response.data.length === 0) {
+    if (response.data.length === 0) {
       dispatch({
         type: WRONG_CREDENTIALS
       });
@@ -51,10 +52,10 @@ export const signOut = () => {
 
   return (dispatch) => {
 
-      dispatch({
-        type: SIGN_OUT
-      })
-    }
+    dispatch({
+      type: SIGN_OUT
+    })
+  }
 };
 
 export const register = (method, credentials) => {
@@ -63,7 +64,7 @@ export const register = (method, credentials) => {
 
     let queryString = '';
 
-    if(method === 'form') {
+    if (method === 'form') {
       queryString = `?email=${credentials.email}&password=${credentials.password}`;
     } else {
       queryString = `?${method}=${credentials[method]}`;
@@ -71,12 +72,12 @@ export const register = (method, credentials) => {
 
     const userExists = await api.get(`/users${queryString}`);
 
-    if(userExists.data.length){
+    if (userExists.data.length) {
       dispatch({
         type: USER_EXISTS
       });
     } else {
-      if(!('profilePicURL' in credentials)) {
+      if (!('profilePicURL' in credentials)) {
         credentials['profilePicURL'] = "https://picsum.photos/200";
       }
       const response = await api.post('/users', credentials);
@@ -90,7 +91,7 @@ export const register = (method, credentials) => {
 };
 
 
-export const getUser = (id) => {
+export const getUserById = (id) => {
 
   return async dispatch => {
     const userInfo = await api.get(`/users?id=${id}&limit=1`);
@@ -102,3 +103,15 @@ export const getUser = (id) => {
 
   };
 };
+
+export const updateProfile = (newValues) => {
+
+  return async dispatch => {
+    const response = await api.patch(`/users/${newValues.id}`, newValues);
+    dispatch({
+      type: UPDATE_USER,
+      payload: response.data
+    });
+    history.push(`/users/${response.data.id}`);
+  }
+}
