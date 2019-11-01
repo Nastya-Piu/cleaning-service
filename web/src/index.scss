@@ -132,3 +132,29 @@ button, .btn {
   padding: 15px;
   padding-bottom: 50px;
 }
+
+.review {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 5px 0;
+  padding: 10px;
+  h5 {
+    span {
+      font-size: 1em;
+      display: inline-block;
+      position: relative;
+      bottom: 1px;
+      left: 5px;
+    }
+  }
+  .review-time {
+    font-size: 0.9em;
+    float: right;
+    bottom: 15px;
+    position: relative;
+  }
+}
+
+.orders {
+  margin: 20px 0;
+}

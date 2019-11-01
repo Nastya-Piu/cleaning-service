@@ -9,10 +9,10 @@ import { Row, Col } from 'react-bootstrap';
 const SortSelect = (props) => {
 
   const handleChange = name => event => {
-    this.props.fetchCompanies({ ...this.props.params, [name]: event.target.value })
+    props.onChange(name, event.target.value);
   };
 
-  const { sort, order, query } = props.params;
+  const { sort, order } = props;
 
   return (
     <Row>
@@ -39,7 +39,7 @@ const SortSelect = (props) => {
           <option value={'desc'}>Desc</option>
         </NativeSelect>
       </Col>
-      <Col md={{ span: 6, offset: 3 }}>
+      <Col md={{ span: 3, offset: 6 }}>
         <Paper>
           <InputBase
             onChange={handleChange('query')}

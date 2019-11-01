@@ -20,13 +20,13 @@ const Header = () => {
             {/* <Nav.Link href="#features">Features</Nav.Link> */}
           </Nav>
 
-          { isSignedIn ?
+          {isSignedIn ?
             <div>
               <Link to={`/users/${userInfo.id}`} className="user-profile-link">
                 {userInfo.name}
               </Link>
-              <img alt="Cleaning services" className="header-profile-image" src={userInfo.profilePicURL}/>
-              <button className="btn btn-outline-primary" onClick={() => dispatch({type: SIGN_OUT})}>Logout</button>
+              <img alt={userInfo.name} className="header-profile-image" src={userInfo.profilePicURL} />
+              <button className="btn btn-outline-primary" onClick={() => dispatch({ type: SIGN_OUT })}>Logout</button>
             </div>
             :
             <>

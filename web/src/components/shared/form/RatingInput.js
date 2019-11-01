@@ -1,7 +1,7 @@
 import React from 'react'
 import Rating from '@material-ui/lab/Rating'
 
-const RatingInput = ({ label, input }) => {
+const RatingInput = ({ label, input, meta: { error, touched } }) => {
 
   return (
     <>
@@ -13,6 +13,9 @@ const RatingInput = ({ label, input }) => {
           input.onChange(newValue);
         }}
       />
+      {error && touched && <div className="text-danger">
+        {error}
+      </div>}
     </>
   )
 }

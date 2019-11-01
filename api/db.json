@@ -11,7 +11,6 @@
       ],
       "services": [],
       "rate": 4.5,
-      "reviews": [],
       "price": 30,
       "requests": 26
     },
@@ -26,13 +25,12 @@
       ],
       "services": [],
       "rate": 4.2,
-      "reviews": [],
       "price": 42,
       "requests": 15
     },
     {
       "id": 3,
-      "name": "Chistogoliki",
+      "name": "Chistogolikiiii",
       "description": "Name were we at hope. Remainder household direction zealously the unwilling bed sex. Lose and gay ham sake met that. Stood her place one ten spoke yet. Head case knew ever set why over. Marianne returned of peculiar replying in moderate. Roused get enable garret estate old county. Entreaties you devonshire law dissimilar terminated.",
       "address": "vulica Smaliačkova 9, Minsk 220034",
       "coordinates": [
@@ -41,7 +39,6 @@
       ],
       "services": [],
       "rate": 4,
-      "reviews": [],
       "price": 12,
       "requests": 34
     },
@@ -56,7 +53,6 @@
       ],
       "services": [],
       "rate": 5,
-      "reviews": [],
       "price": 75,
       "requests": 19
     },
@@ -71,7 +67,6 @@
       ],
       "services": [],
       "rate": 3.5,
-      "reviews": [],
       "price": 43,
       "requests": 56
     },
@@ -86,9 +81,73 @@
       ],
       "services": [],
       "rate": 5,
-      "reviews": [],
       "price": 78,
       "requests": 125
+    },
+    {
+      "name": "This is test company",
+      "description": "Because we should test how user can add the company to this database",
+      "address": "Some address",
+      "price": "100",
+      "coordinates": [
+        56,
+        22
+      ],
+      "id": 7
+    },
+    {
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/57a7ae73-fb00-47e9-bdd9-afaff3a60398photo-1548802673-380ab8ebc7b7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T120100Z&X-Amz-Expires=900&X-Amz-Signature=cf816879854aa280ed44c2abdbfa5e8d520cc8e60ff3db6d5f161bf273e8a505&X-Amz-SignedHeaders=host",
+      "name": "Cat service",
+      "description": "We like to clean all the things in your room!",
+      "address": "cat street, 34-21",
+      "price": "150",
+      "coordinates": [
+        45,
+        21
+      ],
+      "id": 8
+    },
+    {
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/677e66b9-8569-46e7-a2f5-1427bd4260b5photo-1537319353877-2a9d6f039d09.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T124915Z&X-Amz-Expires=900&X-Amz-Signature=ada66824a7fa060f4884df0c811e0b4c89da749aef3af8c168e7802ee70c7b17&X-Amz-SignedHeaders=host",
+      "name": "Dogs company",
+      "description": "The company for the clean dogs and their owners",
+      "address": "Dog street, 34-2",
+      "price": "44",
+      "coordinates": [
+        23,
+        4
+      ],
+      "id": 9
+    },
+    {
+      "name": "New company!!!!",
+      "description": "The good company!",
+      "address": "Bless you",
+      "price": "22",
+      "coordinates": [
+        45,
+        2
+      ],
+      "id": 10
+    },
+    {
+      "name": "Normal name",
+      "description": "Normal description",
+      "address": "Normal address",
+      "id": 11,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/a62907b5-6e2d-4d67-a690-758744a29440photo-1518459951661-02d921b3a9ce.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T142231Z&X-Amz-Expires=900&X-Amz-Signature=88e2608a29d21ca3e147606876206b199b4e60f1c3ea5af239582ef2de0b7356&X-Amz-SignedHeaders=host"
+    },
+    {
+      "name": "Some new company tttttt",
+      "description": "Some description for a new company",
+      "address": "some fictional address",
+      "price": "222",
+      "coordinates": [
+        56,
+        42
+      ],
+      "id": 12,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/0cc1e872-504c-4818-9bd5-b54abc972b52photo-1542856391-010fb87dcfed.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T142200Z&X-Amz-Expires=900&X-Amz-Signature=7fa92cee80ebbdeeafe6b8c58cb42751f59a00e76195f0d2a5c8b404780771a5&X-Amz-SignedHeaders=host"
     }
   ],
   "users": [
@@ -110,7 +169,8 @@
       "lastName": "Piu",
       "email": "workwithpiu@gmail.com",
       "profilePicURL": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=556614678440081&height=50&width=50&ext=1574933677&hash=AeS98tH11nb4D_rB",
-      "facebookId": "556614678440081"
+      "facebookId": "556614678440081",
+      "address": "st.Korgenevskogo,33-1-65"
     },
     {
       "id": "109960571707517045049",
@@ -118,7 +178,7 @@
       "firstName": "настя",
       "lastName": "пиу",
       "email": "gia.gandi@gmail.com",
-      "profilePicURL": "https://lh3.googleusercontent.com/a-/AAuE7mDeXtiATdsrtS5P8igdTun7MgMmeMbcmRzopSxD=s96-c",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/f153d4bf-f816-4a6b-b1c6-1436c41e8a99feature-reliable.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T082856Z&X-Amz-Expires=900&X-Amz-Signature=b4dcfb53c5387c9e3bb8d7c06f6eb56ff5e989a602d1d85872b4a5f95cdae5d2&X-Amz-SignedHeaders=host",
       "googleId": "109960571707517045049"
     },
     {
@@ -127,7 +187,7 @@
       "firstName": "Anastasiya",
       "lastName": "Piulskaya",
       "email": "workwithpiu@gmail.com",
-      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/29d96911-aadc-4ed0-94c9-f5ed8c903013xzk1q8WbxLk.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191031%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191031T151400Z&X-Amz-Expires=900&X-Amz-Signature=c6a9aac8bbb41d26850e478d107371464119f1e85bb016362e5675b3f0a279ff&X-Amz-SignedHeaders=host",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/5f95de7f-30da-41ff-8dee-d0f4359bb52911.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T120013Z&X-Amz-Expires=900&X-Amz-Signature=c5edd37587f0780d162091e50fe071c924e61545d8a16bb59416c9f673bfb453&X-Amz-SignedHeaders=host",
       "googleId": "100431861743963718620",
       "address": "Minsk,. st.Korgenevskogo,33-1-65",
       "password": "1234",
@@ -139,7 +199,7 @@
       "firstName": "DoYeong",
       "lastName": "Kim",
       "email": "doyeong2885@gmail.com",
-      "profilePicURL": "https://lh4.googleusercontent.com/-AwYZ2T66_Ac/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3reiEkIP3KNffOTUTF-7KI8J_PHAHg/s96-c/photo.jpg",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/67738038-52ad-49b7-8da6-b7724bf39997NKQzuSHwqYE.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T060333Z&X-Amz-Expires=900&X-Amz-Signature=f6733190bbec90901aaab33b9dfe0dbe4c5c683bf8102f4eb810cc8be9ea2955&X-Amz-SignedHeaders=host",
       "googleId": "106757560589848824641"
     },
     {
@@ -149,6 +209,14 @@
       "repeatPassword": "zxcv",
       "profilePicURL": "https://picsum.photos/200",
       "id": "Hb4N-Aj"
+    },
+    {
+      "email": "email@mail.ru",
+      "password": "$2a$10$gsvTZtVWZr1O54COwsmuHOpUKRBgFNkUDd.UTXqCiY6mAmvjcit.m",
+      "name": "Анастасия Пиульская",
+      "repeatPassword": "some",
+      "profilePicURL": "https://picsum.photos/200",
+      "id": "u_AX_yp"
     }
   ],
   "serviceTypes": [
@@ -214,6 +282,34 @@
       "serviceId": "4",
       "userId": "556614678440081",
       "id": 2
+    },
+    {
+      "dates": [
+        "2019-11-06T09:00:00.000Z",
+        "2019-11-13T09:00:00.000Z"
+      ],
+      "time": "10:00",
+      "address": "my address",
+      "cleanType": "3",
+      "description": "this is room/office description",
+      "created": "2019-11-01T10:30:51.241Z",
+      "serviceId": "3",
+      "userId": "100431861743963718620",
+      "id": 3
+    },
+    {
+      "dates": [
+        "2019-11-07T09:00:00.000Z",
+        "2019-11-13T09:00:00.000Z"
+      ],
+      "time": "10:00",
+      "address": "wefwefwef",
+      "cleanType": "5",
+      "description": "wefwfwef",
+      "created": "2019-11-01T10:51:25.636Z",
+      "serviceId": "8",
+      "userId": "100431861743963718620",
+      "id": 4
     }
   ],
   "reviews": [
@@ -285,6 +381,138 @@
       "created": "2019-10-31T15:48:14.182Z",
       "userId": "109960571707517045049",
       "id": 8
+    },
+    {
+      "title": "New stream",
+      "description": "wefwef",
+      "serviceId": 3,
+      "created": "2019-11-01T05:56:49.883Z",
+      "userId": "100431861743963718620",
+      "id": 9
+    },
+    {
+      "title": "Section One",
+      "description": "346246",
+      "serviceId": 5,
+      "created": "2019-11-01T05:59:08.131Z",
+      "userId": "100431861743963718620",
+      "id": 10
+    },
+    {
+      "title": "Some title",
+      "description": "Some review text",
+      "serviceId": 4,
+      "created": "2019-11-01T06:01:45.507Z",
+      "userId": "100431861743963718620",
+      "id": 11
+    },
+    {
+      "rating": 5,
+      "title": "Section One",
+      "description": "dfbdfbdfb",
+      "serviceId": 3,
+      "created": "2019-11-01T06:19:30.695Z",
+      "userId": "100431861743963718620",
+      "id": 12
+    },
+    {
+      "rating": 4,
+      "title": "New stream",
+      "description": "357u56345634563456",
+      "serviceId": 3,
+      "created": "2019-11-01T06:43:10.083Z",
+      "userId": "100431861743963718620",
+      "id": 13
+    },
+    {
+      "rating": 4,
+      "title": "wefwefwef",
+      "description": "wefwefwefwef",
+      "serviceId": 3,
+      "created": "2019-11-01T06:44:21.146Z",
+      "userId": "100431861743963718620",
+      "id": 14
+    },
+    {
+      "title": "234t234t",
+      "description": "23t423t423t423t4",
+      "rating": 4,
+      "serviceId": 3,
+      "created": "2019-11-01T07:00:43.611Z",
+      "userId": "100431861743963718620",
+      "id": 15
+    },
+    {
+      "title": "45y45y45y",
+      "description": "this.props.reviews",
+      "rating": 4,
+      "serviceId": 3,
+      "created": "2019-11-01T07:03:11.969Z",
+      "userId": "100431861743963718620",
+      "id": 16
+    },
+    {
+      "rating": 3,
+      "title": "Testing",
+      "description": "546345653456",
+      "serviceId": 2,
+      "created": "2019-11-01T08:01:27.983Z",
+      "userId": "556614678440081",
+      "id": 17
+    },
+    {
+      "rating": 5,
+      "title": "34252",
+      "description": "43523",
+      "serviceId": 9,
+      "created": "2019-11-01T10:53:24.028Z",
+      "userId": "100431861743963718620",
+      "id": 18
+    },
+    {
+      "title": "Anastasiya's questionnaire",
+      "description": "rther5y",
+      "rating": 4,
+      "serviceId": 7,
+      "created": "2019-11-01T10:59:02.846Z",
+      "userId": "109960571707517045049",
+      "id": 19
+    },
+    {
+      "title": "wefef",
+      "description": "wefwf",
+      "rating": 4,
+      "serviceId": 7,
+      "created": "2019-11-01T10:59:07.292Z",
+      "userId": "109960571707517045049",
+      "id": 20
+    },
+    {
+      "rating": 4,
+      "title": "Section One",
+      "description": "ergergerg",
+      "serviceId": 8,
+      "created": "2019-11-01T12:17:51.446Z",
+      "userId": "556614678440081",
+      "id": 21
+    },
+    {
+      "rating": 4,
+      "title": "qwdqwd",
+      "description": "qwdqwdqwd",
+      "serviceId": 10,
+      "created": "2019-11-01T12:52:04.532Z",
+      "userId": "109960571707517045049",
+      "id": 22
+    },
+    {
+      "rating": 4,
+      "title": "This is great review",
+      "description": "Bla-bla-bla",
+      "serviceId": 12,
+      "created": "2019-11-01T14:21:45.092Z",
+      "userId": "556614678440081",
+      "id": 23
     }
   ]
 }

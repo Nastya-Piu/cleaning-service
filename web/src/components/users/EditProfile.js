@@ -7,7 +7,6 @@ import { updateProfile } from '../../store/actions/userActions'
 class EditProfile extends Component {
 
   onSubmit = values => {
-    console.log(values);
     this.props.updateProfile(values);
   }
 

@@ -9,22 +9,22 @@ import AddressMap from '../shared/AddressMap';
 
 const CompanyCard = props => {
 
-  const { id, name, address, rate, coordinates } = props.company;
+  const { id, name, address, rate, coordinates, logo } = props.company;
 
   return (
     <div className="card col-md-3 col-sm-6 .col-6" style={{ padding: 0 }}>
-      <img src={`https://picsum.photos/id/${id + Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name} />
+      <img height="283" src={
+        logo ? logo : `https://picsum.photos/id/${id + Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name} />
       <div className="card-body">
         <h5 className="card-title">
           <Link to={`/services/${id}`}>
             {name}
           </Link>
         </h5>
-        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates} />}>
+        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates ? coordinates : []} />}>
           <span className="company-address"><FontAwesomeIcon icon={faMapMarkerAlt} /> {address}</span>
         </Popup>
         <Rating
-          name="customized-empty"
           value={rate}
           readOnly
           precision={0.1}

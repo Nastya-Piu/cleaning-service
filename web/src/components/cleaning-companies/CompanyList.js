@@ -1,21 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faSadTear } from '@fortawesome/free-solid-svg-icons';
+import { debounce } from 'lodash';
 import { fetchCompanies } from '../../store/actions/companyActions';
 import CompanyCard from './CompanyCard';
+import { getCompaniesState } from '../../store/selectors/companySelector';
+import SortSelect from '../shared/SortSelect';
 
 
 class CompanyList extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.currentPage = 1;
+    window.onscroll = debounce(() => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight
+      ) {
+        if (this.props.companies.length < 10) {
+          this.currentPage = ++this.currentPage;
+          this.loadCompanies()
+        }
+      }
+    }, 100);
+  }
+
+  componentWillUnmount() {
+    window.onscroll = () => {
+      // do nothing TODO: make something with it!
+    }
+  }
+
   componentDidMount() {
-    this.props.fetchCompanies();
+    this.loadCompanies({ limit: 8 });
     window.navigator.geolocation.getCurrentPosition( // TODO: count distance between user coords and services coords
       (position) => {
         // position.coords.latitude
@@ -25,9 +45,15 @@ class CompanyList extends React.Component {
     );
   }
 
-  handleChange = name => event => {
-    this.props.fetchCompanies({ ...this.props.params, [name]: event.target.value })
+
+  handleChange = (name, value) => {
+    this.currentPage = 1;
+    this.loadCompanies({ [name]: value })
   };
+
+  loadCompanies = (paramsObj) => {
+    this.props.fetchCompanies(Object.assign(this.props.params, paramsObj, { page: this.currentPage }));
+  }
 
   render() {
     const { sort, order, query } = this.props.params;
@@ -36,45 +62,11 @@ class CompanyList extends React.Component {
     }
     return (
       <>
-        <div>
-          <Link to="/services/new" className="btn btn-default">Register company</Link>
-        </div>
-        <div className="row">
-          <div className="col-md-3" style={{ padding: 0 }}>
-            <NativeSelect
-              style={{ backgroundColor: "white" }}
-              className="select-input"
-              value={sort}
-              onChange={this.handleChange('sort')}
-              name="sort"
-              inputProps={{ 'aria-label': 'sort' }}
-            >
-              <option value="">Sort list</option>
-              <option value='rate'>By rating</option>
-              <option value='price'>By price</option>
-              <option value='address'>By address</option>
-              <option value='requests'>By popularity</option>
-            </NativeSelect>
-            <NativeSelect
-              className="select-input"
-              value={order}
-              onChange={this.handleChange('order')}>
-              <option value={'asc'}>Asc</option>
-              <option value={'desc'}>Desc</option>
-            </NativeSelect>
-          </div>
-          <Paper className="col-md-3 offset-md-6" style={{ padding: '2px 4px' }}>
-            <InputBase
-              onChange={this.handleChange('query')}
-              style={{ paddingTop: 6, paddingLeft: 10 }}
-              placeholder="Search services"
-            />
-            <IconButton style={{ padding: 10 }} className="float-right" aria-label="search">
-              <SearchIcon />
-            </IconButton>
-          </Paper>
-        </div>
-        <div className="row">
+        {this.props.user && <div className="text-center">
+          <Link to="/services/new" className="btn btn-primary">Register company</Link>
+        </div>}
+        <SortSelect sort={sort} order={order} query={query} onChange={this.handleChange} />
+        <div className="row" ref={(scrollableBox) => this.scrollableBox = scrollableBox}>
           {this.props.companies.map(company => {
             return <CompanyCard key={company.id} company={company} />
           })}
@@ -89,7 +81,12 @@ class CompanyList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { companies: Object.values(state.companies.data), params: state.companies.params, error: state.companies.error };
+  return {
+    companies: getCompaniesState(state),
+    params: state.companies.params,
+    error: state.companies.error,
+    user: state.auth.userInfo
+  };
 };
 
 export default connect(mapStateToProps, { fetchCompanies })(CompanyList);

@@ -25,11 +25,11 @@ export default (state = INITIAL_STATE, action) => {
     case SIGN_OUT:
       return { ...state, ...INITIAL_STATE };
     case SIGN_OUT_GOOGLE:
-      return { ...state, isSignedIn: false, googleId: null, userInfo: null };
+      return { INITIAL_STATE };
     case REGISTER:
       return { ...state, isSignedIn: true, userInfo: action.payload, wrongCredentials: false, userExists: false };
     case WRONG_CREDENTIALS:
-      return { ...state, isSignedIn: false, wrongCredentials: true, userExists: false }
+      return { isSignedIn: false, wrongCredentials: true, userExists: false }
     case USER_EXISTS:
       return { ...state, isSignedIn: false, userExists: true, wrongCredentials: false }
     case FETCH_USER:

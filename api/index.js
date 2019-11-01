@@ -1,6 +1,8 @@
 const jsonServer = require('json-server');
 const bodyParser = require('body-parser');
 const express = require('express');
+const auth = require('json-server-auth')
+const jwt = require('jsonwebtoken')
 const server = express(); //jsonServer.create();
 const router = jsonServer.router('db.json');
 
@@ -25,8 +27,6 @@ server.use(function (req, res, next) {
 });
 server.post('/image-upload', upload.single('upload'), (req, res) => {
 
-  console.log(req.file);
-
   var key = uuid() + req.file.originalname;
 
   s3.upload({
@@ -45,7 +45,6 @@ server.post('/image-upload', upload.single('upload'), (req, res) => {
   });
 });
 
-
 async function getPresignedUploadUrl(bucket, directory) {
   const key = `${directory}/${uuid.v4()}`;
   const url = await s3
@@ -59,6 +58,8 @@ async function getPresignedUploadUrl(bucket, directory) {
   return url;
 }
 
+//server.db = router.db
+//server.use(auth);
 server.use(middlewares);
 server.use(router);
 

@@ -31,6 +31,7 @@ ReviewForm.propTypes = {
 }
 
 const validate = validateForm({
+  rating: [required({ msg: "You should rate your experience" })],
   title: [required({ msg: "You should enter a title" })],
   description: [required({ msg: "You should enter text" })]
 });
