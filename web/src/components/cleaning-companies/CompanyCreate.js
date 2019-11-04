@@ -19,7 +19,7 @@ class CompanyCreate extends Component {
             <h4>Add your company:</h4>
             <CompanyForm onSubmit={this.onSubmit} />
           </div> :
-          <LoginFirst message="You couldn't create new company." />
+          <LoginFirst message="You have no rights to create new company." />
         }
       </>
     )

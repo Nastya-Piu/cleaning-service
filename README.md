@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   There are two parts of the project - front-end (web directory) and back-end (api directory)
 </p>
 <p>
-  To run api part you should install <i>json-server</i> globally and run <b>json-server --watch db.json</b>
+  To run api part you should install <i>json-server</i> globally and run <b>node index</b>
   <div>It should be run on <b>localhost:3000</b></div>
 </p>
 

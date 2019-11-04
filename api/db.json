@@ -96,7 +96,7 @@
       "id": 7
     },
     {
-      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/57a7ae73-fb00-47e9-bdd9-afaff3a60398photo-1548802673-380ab8ebc7b7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T120100Z&X-Amz-Expires=900&X-Amz-Signature=cf816879854aa280ed44c2abdbfa5e8d520cc8e60ff3db6d5f161bf273e8a505&X-Amz-SignedHeaders=host",
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/b688761f-c603-4697-8db6-987e3c9e0dfcphoto-1535043883-2548fb805573.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYOZYRPMNK%2F20191104%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191104T072447Z&X-Amz-Expires=900&X-Amz-Signature=9c24b5850ab20a2afb99a9d5729bf295d855420bb53d74bbfacc5e7c6a76b333&X-Amz-SignedHeaders=host",
       "name": "Cat service",
       "description": "We like to clean all the things in your room!",
       "address": "cat street, 34-21",
@@ -108,7 +108,7 @@
       "id": 8
     },
     {
-      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/677e66b9-8569-46e7-a2f5-1427bd4260b5photo-1537319353877-2a9d6f039d09.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T124915Z&X-Amz-Expires=900&X-Amz-Signature=ada66824a7fa060f4884df0c811e0b4c89da749aef3af8c168e7802ee70c7b17&X-Amz-SignedHeaders=host",
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/116bd534-82cd-468f-ab06-4756654ee1fbphoto-1534806391029-791d2695c38b.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYOZYRPMNK%2F20191104%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191104T072505Z&X-Amz-Expires=900&X-Amz-Signature=368e88ef054480d55163b28052b690fbfac5bb8f5b052772d92e6e105fabca83&X-Amz-SignedHeaders=host",
       "name": "Dogs company",
       "description": "The company for the clean dogs and their owners",
       "address": "Dog street, 34-2",
@@ -135,7 +135,7 @@
       "description": "Normal description",
       "address": "Normal address",
       "id": 11,
-      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/a62907b5-6e2d-4d67-a690-758744a29440photo-1518459951661-02d921b3a9ce.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T142231Z&X-Amz-Expires=900&X-Amz-Signature=88e2608a29d21ca3e147606876206b199b4e60f1c3ea5af239582ef2de0b7356&X-Amz-SignedHeaders=host"
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/b2566fb4-434e-41e8-bd19-64f1f2a0b70cphoto-1535126320463-c5c1b26b3e66.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYOZYRPMNK%2F20191104%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191104T072520Z&X-Amz-Expires=900&X-Amz-Signature=83af100ef9b51266c73d00db250a6fa02d036b3d728191f5a1fc17b008978194&X-Amz-SignedHeaders=host"
     },
     {
       "name": "Some new company tttttt",
@@ -147,7 +147,14 @@
         42
       ],
       "id": 12,
-      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/0cc1e872-504c-4818-9bd5-b54abc972b52photo-1542856391-010fb87dcfed.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T142200Z&X-Amz-Expires=900&X-Amz-Signature=7fa92cee80ebbdeeafe6b8c58cb42751f59a00e76195f0d2a5c8b404780771a5&X-Amz-SignedHeaders=host"
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/ad09d5f0-ecd8-4f8b-b47c-dee101b0cb5dphoto-1534794293512-9d0339cd8396.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYOZYRPMNK%2F20191104%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191104T072537Z&X-Amz-Expires=900&X-Amz-Signature=58ca7b5713eece90e037ca2fa8a96950dea9fc33f27700c48e57db0dfca9296e&X-Amz-SignedHeaders=host"
+    },
+    {
+      "name": "Some new cleaning service",
+      "description": "We try to keep it clean!",
+      "address": "st. Landera,40",
+      "price": "45",
+      "id": 13
     }
   ],
   "users": [
@@ -187,7 +194,7 @@
       "firstName": "Anastasiya",
       "lastName": "Piulskaya",
       "email": "workwithpiu@gmail.com",
-      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/5f95de7f-30da-41ff-8dee-d0f4359bb52911.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYCT6BGD7U%2F20191101%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191101T120013Z&X-Amz-Expires=900&X-Amz-Signature=c5edd37587f0780d162091e50fe071c924e61545d8a16bb59416c9f673bfb453&X-Amz-SignedHeaders=host",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/6edb6da1-ca98-41fa-bd01-5dc592d2a67ccat.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWQLVENZYOZYRPMNK%2F20191104%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20191104T073147Z&X-Amz-Expires=900&X-Amz-Signature=4c53813aa554908682466ad182f2d60edb75b6645cfd8af2cf8c814d8f20106b&X-Amz-SignedHeaders=host",
       "googleId": "100431861743963718620",
       "address": "Minsk,. st.Korgenevskogo,33-1-65",
       "password": "1234",
@@ -513,6 +520,15 @@
       "created": "2019-11-01T14:21:45.092Z",
       "userId": "556614678440081",
       "id": 23
+    },
+    {
+      "rating": 4,
+      "title": "Revieeewwww",
+      "description": "Reviewwww text meeeoww\n",
+      "serviceId": 8,
+      "created": "2019-11-04T07:27:31.980Z",
+      "userId": "100431861743963718620",
+      "id": 24
     }
   ]
 }

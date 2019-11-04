@@ -18,15 +18,15 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        { !this.props.isSignedIn &&
+        {!this.props.isSignedIn &&
           <>
             <h1 className="text-center">Log in:</h1>
-            <SocialAuth login={true} onSubmit={this.onSubmit}/>
-            <LoginForm onSubmit={this.onSubmit}/>
+            <SocialAuth login={true} onSubmit={this.onSubmit} />
+            <LoginForm onSubmit={this.onSubmit} />
           </>
         }
-        { this.props.wrongCredentials && <p>User doesn't exist. Please, <Link to='/users/register'>Sign up</Link> first</p> }
-        { this.props.isSignedIn && <div className="text-center">
+        {this.props.wrongCredentials && <p className="text-danger">Invalid username or password.</p>}
+        {this.props.isSignedIn && <div className="text-center">
           <h1>You are already signed in</h1>
           <button className="btn btn-outline-secondary" onClick={this.logout}>Logout</button>
         </div>}

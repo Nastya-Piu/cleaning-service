@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { required, email, validateForm, confirmation } from 'redux-form-validators'
+import { required, validateForm } from 'redux-form-validators'
 import Input from '../shared/form/Input';
 import UploadImage from '../shared/form/UploadImage';
 import TextArea from '../shared/form/TextArea';
@@ -34,6 +34,7 @@ class ProfileForm extends Component {
 const validate = validateForm({
   name: [required({ msg: "You should enter name" })],
   description: [required({ msg: "You must enter description" })]
+  // TODO: create check for lat lng, if one is filled - another should be filled to
 });
 
 export default reduxForm({
