@@ -1,0 +1,14 @@
+.social-login {
+  display: inline-block;
+}
+
+.social-buttons {
+  text-align: center;
+  >div {
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    svg {
+      margin-right: 10px;
+    }
+  }
+}

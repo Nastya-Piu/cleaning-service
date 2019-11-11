@@ -3,115 +3,388 @@
     {
       "id": 1,
       "name": "BeeClean.by",
-      "description": "",
+      "description": "Rendered her for put concerns his. Ladies bed wisdom theirs mrs men months set. Everything so dispatched as it increasing pianoforte. Hearing now saw perhaps minutes herself his. Of instantly excellent therefore difficult he northward. Joy green but least marry rapid quiet but. Way devonshire introduced expression saw travelling affronting. Her and effects affixed pretend account ten natural. Need eat week even yet that. Incommode delighted he resolving sportsmen do in listening.",
       "address": "vulica Chernyshevskogo 10А, office 801, Minsk",
+      "coordinates": [
+        53.8977036,
+        27.5994665
+      ],
       "services": [],
       "rate": 4.5,
-      "reviews": [],
       "price": 30,
-      "requests": 26
+      "requests": 26,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/f1bc8676-c83d-4d88-b6c2-4d314e7130e7photo-1531104048215-632162c6af26.jpg"
     },
     {
       "id": 2,
       "name": "Gubka.by",
-      "description": "",
+      "description": "Do greatest at in learning steepest. Breakfast extremity suffering one who all otherwise suspected. He at no nothing forbade up moments. Wholly uneasy at missed be of pretty whence. John way sir high than law who week. Surrounded prosperous introduced it if is up dispatched. Improved so strictly produced answered elegance is. ",
       "address": "vulica Čapajeva 3, 212, Minsk 220034",
+      "coordinates": [
+        53.9043766,
+        27.5856148
+      ],
       "services": [],
       "rate": 4.2,
-      "reviews": [],
       "price": 42,
-      "requests": 15
+      "requests": 15,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/d1bd6ef7-92c0-4245-9d14-c510550d126c12.jpeg"
     },
     {
       "id": 3,
-      "name": "Chistogoliki",
-      "description": "",
+      "name": "Chistogolikiiii",
+      "description": "Name were we at hope. Remainder household direction zealously the unwilling bed sex. Lose and gay ham sake met that. Stood her place one ten spoke yet. Head case knew ever set why over. Marianne returned of peculiar replying in moderate. Roused get enable garret estate old county. Entreaties you devonshire law dissimilar terminated.",
       "address": "vulica Smaliačkova 9, Minsk 220034",
+      "coordinates": [
+        53.9108637,
+        27.5834593
+      ],
       "services": [],
       "rate": 4,
-      "reviews": [],
       "price": 12,
-      "requests": 34
+      "requests": 34,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/5df473d0-a1b6-40de-bb8d-1d0f7d22b7351.jpeg"
     },
     {
       "id": 4,
       "name": "Atalian Global Services",
-      "description": "",
+      "description": "In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance imprudence particular had eat unsatiable. ",
       "address": "Pereulok Ural'skiy 15-558, Minsk 220037",
+      "coordinates": [
+        53.9012068,
+        27.6044704
+      ],
       "services": [],
       "rate": 5,
-      "reviews": [],
       "price": 75,
-      "requests": 19
+      "requests": 19,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/432963f2-526b-4281-9f4f-6ac20c2340441_agGENodMcD6hhwIFdqGwrw.jpeg"
     },
     {
       "id": 5,
       "name": "UborkaKvartir.by",
-      "description": "",
+      "description": "Fat new smallness few supposing suspicion two. Course sir people worthy horses add entire suffer. How one dull get busy dare far. At principle perfectly by sweetness do. As mr started arrival subject by believe. Strictly numerous outlived kindness whatever on we no on addition. ",
       "address": "Ulitsa Gorovtsa 6, Minsk 220000",
+      "coordinates": [
+        53.8744762,
+        27.5999361
+      ],
       "services": [],
       "rate": 3.5,
-      "reviews": [],
       "price": 43,
-      "requests": 56
+      "requests": 56,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/9d408958-fc04-4a4a-baaa-1faa33936b5e3.jpeg"
     },
     {
       "id": 6,
-      "name": "Pure whale",
-      "description": "",
+      "name": "Clean whale",
+      "description": "Ham followed now ecstatic use speaking exercise may repeated. Himself he evident oh greatly my on inhabit general concern. It earnest amongst he showing females so improve in picture. Mrs can hundred its greater account. Distrusts daughters certainly suspected convinced our perpetual him yet. Words did noise taken right state are since. ",
       "address": "vulica Kastryčnickaja 21/111, Minsk 220090",
+      "coordinates": [
+        53.8908143,
+        27.571156
+      ],
       "services": [],
       "rate": 5,
-      "reviews": [],
       "price": 78,
-      "requests": 125
+      "requests": 125,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/d8c79773-6b92-411e-8e13-efb9e37cf723photograph-of-humpback-whale.jpg"
+    },
+    {
+      "name": "This is test company",
+      "description": "Because we should test how user can add the company to this database",
+      "address": "Some address",
+      "price": "100",
+      "coordinates": [
+        56,
+        22
+      ],
+      "id": 7,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/17c541c3-0661-4962-8736-9f1cfd4c3149d2a631d1-5a66-419c-ba5e-eb09d23d9c3bheader.jpg"
+    },
+    {
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/3a0fb362-d478-4fa6-9fbe-ab71e13d36d5photo-1531425300797-d5dc8b021c84.jpg",
+      "name": "Cat service",
+      "description": "We like to clean all the things in your room!",
+      "address": "cat street, 34-21",
+      "price": "150",
+      "coordinates": [
+        45,
+        21
+      ],
+      "id": 8
+    },
+    {
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/c643c5be-4d5b-4b65-8921-6edd008a72fa8d6ef69d-4498-4ae8-97f1-ecd039eafd4b2368fccc416583b61d6802e568e948ef.png",
+      "name": "Dogs company",
+      "description": "The company for the clean dogs and their owners",
+      "address": "Dog street, 34-2",
+      "price": "44",
+      "coordinates": [
+        23,
+        4
+      ],
+      "id": 9
+    },
+    {
+      "name": "New company!!!!",
+      "description": "The good company!",
+      "address": "Bless you",
+      "price": "22",
+      "coordinates": [
+        45,
+        2
+      ],
+      "id": 10,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/0ececca4-1a9b-4450-9bc3-5676ef17a2aephoto-1525310064513-f5baa31e8d40.jpeg"
+    },
+    {
+      "name": "Normal name",
+      "description": "Normal description",
+      "address": "Normal address",
+      "id": 11,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/19c2d605-fbd5-4b94-9049-65ce8807d8f1photo-1547880016-9c46f458266a.jpg"
+    },
+    {
+      "name": "Some new company tttttt",
+      "description": "Some description for a new company",
+      "address": "some fictional address",
+      "price": "222",
+      "coordinates": [
+        56,
+        42
+      ],
+      "id": 12,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/a5af1e10-3d96-47f2-b20d-23988828f0eaphoto-1437422061949-f6efbde0a471.jpeg"
+    },
+    {
+      "name": "Some new cleaning service",
+      "description": "We try to keep it clean!",
+      "address": "st. Landera,40",
+      "price": "45",
+      "id": 13,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/5acb8d60-9569-46d8-bef2-a4968a54b1c5photo-1542856391-010fb87dcfed.jpg"
+    },
+    {
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/6be1fd67-d3b7-4929-9079-07a7e12aa3025.jpeg",
+      "name": "Art service",
+      "description": "We clean some art objects",
+      "address": "st. Uralskaya, 56",
+      "price": "123",
+      "coordinates": [
+        53.8847208,
+        27.5233291
+      ],
+      "id": 14
+    },
+    {
+      "name": "Some random service",
+      "description": "Some random description",
+      "address": "some random address",
+      "price": "60",
+      "id": 15,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/ea5aa9a9-78f4-4408-9ac1-6997afdfd432photo-1498618388276-4c0cf89c15ec.jpeg"
+    },
+    {
+      "name": "With love",
+      "description": "We clean all things in your room with love",
+      "address": "Fanipol",
+      "price": "1111",
+      "id": 16,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/57f656d3-11aa-4860-87e1-54ec3a937800vLhivEyIzQk.jpg"
+    },
+    {
+      "name": "Third page company",
+      "description": "To see how scroll pagination works",
+      "address": "blabla",
+      "price": "22",
+      "id": 17,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/a6c8c957-4287-43bc-8276-0d3296a2da47photo-1540206351-d6465b3ac5c1.jpg"
+    },
+    {
+      "name": "rewrtw",
+      "description": "twertwertw",
+      "id": 18,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/5718c38a-edb3-4475-985e-6c907b74afa3blueberry-3460423_960_720.jpg"
+    },
+    {
+      "name": "Double moble",
+      "description": "Double moble coble bo!",
+      "address": "Bula ga ga",
+      "price": "43",
+      "coordinates": [
+        56,
+        43
+      ],
+      "id": 19,
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/714a9178-a19f-4aad-a58e-0fe38c5ed2dbphoto-1506318164473-2dfd3ede3623.jpeg"
+    },
+    {
+      "name": "werywery",
+      "description": "werywerywery",
+      "coordinates": [
+        45,
+        65
+      ],
+      "id": 20,
+      "address": "some address",
+      "logo": "https://posts-piu.s3.eu-west-3.amazonaws.com/64ba9df3-47cd-4895-913c-c54e5bed17199.jpeg"
+    },
+    {
+      "name": "Service with no image",
+      "description": "Some service with description but no image",
+      "id": 21
+    },
+    {
+      "name": "&&&&",
+      "description": "\\\\\\\\wfwefwfwe///''''",
+      "address": "st.Korgenevskogo,33-1-65",
+      "price": "4",
+      "id": 22
     }
   ],
   "users": [
     {
+      "email": "piu_en_nast102@mail.ru",
+      "password": "$2a$10$2fqyIAADshm8hJ4sxnrC/eYXI00UxLuZxL26rOCaueCMmGp26SEAK",
+      "name": "Анастасия Пиульская",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/5af7dc2e-8f9c-42cf-b7fc-9cac8c6afe8dgiphy-downsized.gif",
       "id": 1,
-      "name": "Anastasiya Piulskaya",
-      "email": "workwithpiu@gmail.com",
-      "phone": "",
-      "googleId": "",
-      "facebookId": "",
-      "password": "qwerty"
-    },
-    {
-      "id": 2,
-      "name": "Vladimir Ivanov",
-      "email": "vladimir@gmail.com",
-      "phone": "",
-      "googleId": "100431861743963718620",
-      "facebookId": "",
-      "password": "12345"
+      "address": "st.Korgenevskogo,33-1-65"
     },
     {
       "id": 3,
-      "name": "Helena Baranova",
-      "email": "baranova@gmail.com",
-      "phone": "",
-      "googleId": "",
-      "facebookId": "556614678440081",
-      "password": "1111"
+      "email": "gia.gandi@gmail.com",
+      "googleId": "109960571707517045049",
+      "name": "Nastya Piu",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/304cbf0e-4220-413d-8698-74b0c96b5339giphy-downsized.gif",
+      "address": "st.Korgenevskogo,33-1-65"
     },
     {
-      "name": "Анастасия Пиульская",
-      "email": "piu_en_nast102@mail.ru",
-      "password": "1234567",
-      "id": 4
+      "email": "staisy_piu@yahoo.com",
+      "password": "$2a$10$7RpL/Y3IPGJRuychzcj4Ge7yki0LW8TaC/wgQWIPWCrw0S/wAuAM6",
+      "name": "Lorenta",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/574cd289-4459-4df6-9a22-2fac71cadab5xzk1q8WbxLk.jpg",
+      "id": 4,
+      "address": "Visterai Lane"
     },
     {
-      "name": "Vasilii Pupkin",
-      "email": "vasyapupkin@gmail.com",
-      "password": "1234qwerty",
-      "id": 5
-    },
-    {
-      "googleId": "100431861743963718620",
       "name": "Anastasiya Piulskaya",
       "email": "workwithpiu@gmail.com",
+      "linkedinId": "PPY-t2I0tx",
+      "profilePicURL": "https://posts-piu.s3.eu-west-3.amazonaws.com/107f5fd5-0704-4809-8f9a-f7d92b229760photo-1534806391029-791d2695c38b.jpeg",
+      "id": 5,
+      "address": "This is my address"
+    },
+    {
+      "email": "staisy_piu1234@yahoo.com",
+      "password": "$2a$10$xZ5iGvdXItrvbpp5CT5JNe4iQr/EHkbGB/jwxL8KVHm/7xgE77Oui",
+      "name": "Staisy piu",
+      "profilePicURL": "https://picsum.photos/200",
       "id": 6
+    }
+  ],
+  "serviceTypes": [
+    {
+      "id": 1,
+      "name": "Standard room cleanup"
+    },
+    {
+      "id": 2,
+      "name": "General cleaning"
+    },
+    {
+      "id": 3,
+      "name": "Cleanup after repairs and building"
+    },
+    {
+      "id": 4,
+      "name": "Carpet cleaning"
+    },
+    {
+      "id": 5,
+      "name": "Office cleaning"
+    },
+    {
+      "id": 6,
+      "name": "Dry cleaning of furniture and coatings"
+    },
+    {
+      "id": 7,
+      "name": "Industrial cleaning"
+    },
+    {
+      "id": 8,
+      "name": "Pool cleaning"
+    }
+  ],
+  "userRequests": [
+    {
+      "dates": [
+        "2019-10-31T09:00:00.000Z",
+        "2019-11-01T09:00:00.000Z",
+        "2019-11-05T09:00:00.000Z"
+      ],
+      "time": "10:00",
+      "address": "st.Korgenevskogo,33-1-65",
+      "cleanType": "2",
+      "description": "Some biiiiiiiggg description of room or office!!!",
+      "created": "2019-10-30T13:58:02.929Z",
+      "serviceId": "5",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "dates": [
+        "2019-11-06T09:00:00.000Z",
+        "2019-11-12T09:00:00.000Z"
+      ],
+      "time": "10:00",
+      "address": "golubeva, 10",
+      "description": "this is my description, we have a very dirty roommmm!",
+      "cleanType": "5",
+      "created": "2019-11-08T13:17:04.935Z",
+      "serviceId": "2",
+      "userId": 5,
+      "id": 3
+    }
+  ],
+  "reviews": [
+    {
+      "rating": 5,
+      "title": "wefqwefqwe",
+      "description": "fqewfqwe",
+      "serviceId": 21,
+      "userId": 3,
+      "created": "2019-11-06T12:20:02.075Z",
+      "id": 7
+    },
+    {
+      "title": "34t",
+      "description": "34t34t",
+      "rating": 5,
+      "serviceId": 2,
+      "userId": 5,
+      "created": "2019-11-11T11:06:37.262Z",
+      "id": 8
+    },
+    {
+      "title": "34t34t3",
+      "description": "4t34t34t",
+      "rating": 3,
+      "serviceId": 2,
+      "userId": 5,
+      "created": "2019-11-11T11:06:44.077Z",
+      "id": 9
+    },
+    {
+      "rating": 5,
+      "title": "Anastasiya's questionnaire",
+      "description": "wefwefwef",
+      "serviceId": 2,
+      "userId": 5,
+      "created": "2019-11-11T11:09:53.775Z",
+      "id": 10
     }
   ]
 }

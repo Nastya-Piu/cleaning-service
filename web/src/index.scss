@@ -1,31 +1,24 @@
-input {
+@import '~bootstrap/scss/bootstrap.scss';
+
+// Global
+
+.breadcrumb {
+  background-color: #f8f9fa;
   border-radius: 0;
 }
 
-.form-control {
-  border-radius: 0;
-  background-clip: border-box;
-}
-
-button, .btn {
+input, button, .btn {
   border-radius: 0;
 }
 
 .container {
-  padding: 20px 0;
-}
-
-.MuiNativeSelect-select:focus {
-  background-color: white !important;
+  margin: 20px auto;
 }
 
 .row {
   margin: 0;
 }
 
-.facebook-btn {
-  padding: 14px !important;
-  i {
-    margin-right: 10px;
-  }
+form {
+  margin-bottom: 100px;
 }

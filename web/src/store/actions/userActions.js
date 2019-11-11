@@ -2,8 +2,10 @@ import {
   SIGN_IN,
   SIGN_OUT,
   SIGN_OUT_GOOGLE,
-  WRONG_CREDENTIALS,
-  REGISTER
+  USER_EXISTS,
+  FETCH_USER,
+  UPDATE_USER,
+  SIGN_IN_ERROR
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -14,89 +16,106 @@ export const signOutGoogle = () => {
   }
 };
 
-export const signIn = (method, user) => {
+export const signIn = (user) => {
 
-  let queryString = '';
   let params = {};
-
-  switch(method) {
-    case 'facebook':
-      queryString = `?facebookId=${user.userID}`;
-      params['facebookId'] = user.userID;
-      break;
-    case 'google':
-      queryString = `?googleId=${user.googleId}`;
-      params['googleId'] = user.googleId;
-      break;
-    case 'form': // TODO - add check of phone or email
-      queryString = `?email=${user.email}&password=${user.password}`;
-      break;
-    default:
-      queryString = '';
-      break;
-  }
-
-  queryString+= queryString ? '&limit=1' : queryString;
 
   return async dispatch => {
 
-    const response = await api.get('/users' + queryString);
-    if(response.data.length === 0) {
-      dispatch({
-        type: WRONG_CREDENTIALS
+    api.post('/login', user)
+      .then(async response => {
+        localStorage.setItem('accessToken', response.data.accessToken);
+
+        let userResponse = await api.get('/profile');
+        dispatch({
+          type: SIGN_IN,
+          payload: { user: userResponse.data[0], params }
+        });
+        history.push('/');
       })
-    }else {
-      dispatch({
-        type: SIGN_IN,
-        payload: { user: response.data[0], params }
+      .catch(err => {
+        dispatch({
+          type: SIGN_IN_ERROR
+        });
       });
-      history.push('/');
-    };
-  }
+
+  };
+
 };
 
 export const signOut = () => {
 
-  return (dispatch, getState) => {
-    const authInfo = getState().auth;
-
-    if(authInfo.googleId) {
-      let auth = window.gapi.auth2.getAuthInstance();
-      auth.isSignedIn.listen(result => {
-        if(!result) {
-          dispatch({
-            type: SIGN_OUT
-          });
-        }
-      });
-      auth.signOut();
-    } else if(authInfo.facebookId) {
-      window.FB.logout(() => {
-        dispatch({
-          type: SIGN_OUT
-        })
-      });
-    } else {
-      dispatch({
-        type: SIGN_OUT
-      })
-    }
-
-  };
+  return (dispatch) => {
+    dispatch({
+      type: SIGN_OUT
+    })
+  }
 };
 
-export const register = (method, credentials) => {
+export const register = (credentials) => {
 
   return async dispatch => {
 
-    // TODO: first we need to check if user exists depending on the method
+    if (!('profilePicURL' in credentials)) {
+      credentials['profilePicURL'] = "https://picsum.photos/200";
+    }
+    delete credentials['id']; // If set by social engine
+    delete credentials['repeatPassword'];
+    await api.post('/users', credentials).then(async response => {
+      localStorage.setItem('accessToken', response.data.accessToken);
+      let userResponse = await api.get('/profile')
+      dispatch({
+        type: SIGN_IN,
+        payload: { user: userResponse.data[0] }
+      });
+      history.push('/');
+    })
+      .catch(error => {
+        if (error) {
+          dispatch({
+            type: USER_EXISTS
+          })
+        }
+      });
+  }
 
-    const response = await api.post('/users', credentials);
+};
+
+
+export const getUserById = (id) => {
+
+  return async dispatch => {
+    const userInfo = await api.get(`/users?id=${id}&limit=1`);
 
     dispatch({
-      type: REGISTER,
-      payload: response.data
+      type: FETCH_USER,
+      payload: userInfo.data[0]
     });
-    history.push('/');
+
   };
 };
+
+export const updateProfile = (newValues) => {
+
+  return async dispatch => {
+    const response = await api.patch(`/users/${newValues.id}`, newValues);
+    dispatch({
+      type: UPDATE_USER,
+      payload: response.data
+    });
+    history.push(`/users/${response.data.id}`);
+  }
+}
+
+export const getProfile = () => {
+
+  return async dispatch => {
+    const response = await api.get(`/profile`);
+    if (response.data.length) {
+      dispatch({
+        type: SIGN_IN,
+        payload: { user: response.data[0] }
+      });
+    }
+  }
+}

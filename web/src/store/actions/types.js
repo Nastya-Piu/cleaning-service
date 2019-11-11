@@ -1,6 +1,23 @@
 export const FETCH_COMPANIES = 'FETCH_COMPANIES';
+export const APPEND_COMPANIES = 'APPEND_COMPANIES'
+export const FETCH_COMPANY = 'FETCH_COMPANY';
+export const FETCH_SERVICE_TYPES = 'FETCH_SERVICE_TYPES';
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const CREATE_REQUEST = 'CREATE_REQUEST';
+export const CREATE_COMPANY = 'CREATE_COMPANY'
+export const EDIT_COMPANY = 'EDIT_COMPANY'
+export const ADD_REVIEW = 'ADD_REVIEW'
+export const FETCH_REVIEWS = 'FETCH_REVIEWS'
+export const FETCH_ORDERS = 'FETCH_ORDERS'
+export const REMOVE_ORDER = 'REMOVE_ORDER'
+
 export const SIGN_OUT_GOOGLE = 'SIGN_OUT_GOOGLE';
 export const SIGN_IN = 'SIGN_IN';
+export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
 export const SIGN_OUT = 'SIGN_OUT';
 export const WRONG_CREDENTIALS = 'WRONG_CREDENTIALS';
 export const REGISTER = 'REGISTER';
+export const USER_EXISTS = 'USER_EXISTS';
+export const FETCH_USER = 'FETCH_USER';
+export const UPDATE_USER = 'UPDATE_USER'
+export const GET_PROFILE = 'GET_PROFILE'

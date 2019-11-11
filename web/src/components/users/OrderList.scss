@@ -1,0 +1,23 @@
+.orders {
+  margin: 20px 0;
+}
+
+.order-card {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  margin: 5px 0;
+  position: relative;
+  &:hover {
+    border-color: #555;
+  }
+  .remove-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #777;
+    cursor: pointer;
+    &:hover{
+      color: black
+    }
+  }
+}

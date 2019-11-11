@@ -3,7 +3,11 @@ import {
   SIGN_IN,
   WRONG_CREDENTIALS,
   SIGN_OUT,
-  REGISTER
+  REGISTER,
+  USER_EXISTS,
+  FETCH_USER,
+  UPDATE_USER,
+  SIGN_IN_ERROR,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,21 +15,30 @@ const INITIAL_STATE = {
   userInfo: null,
   googleId: null,
   facebookId: null,
-  wrongCredentials: false
+  wrongCredentials: false,
+  userExists: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SIGN_IN:
-      return {...state, isSignedIn: true, userInfo: action.payload.user, wrongCredentials: false, ...action.payload.params };
+      return { ...state, isSignedIn: true, userInfo: action.payload.user, wrongCredentials: false, ...action.payload.params, userExists: false };
     case SIGN_OUT:
-      return {...state, isSignedIn: false, facebookId: null, userInfo: null, googleId: null};
+      localStorage.removeItem('accessToken');
+      return { ...state, ...INITIAL_STATE };
     case SIGN_OUT_GOOGLE:
-      return {...state, isSignedIn: false, googleId: null, userInfo: null };
+      return { ...INITIAL_STATE };
     case REGISTER:
-        return {...state, isSignedIn: true, userInfo: action.payload, wrongCredentials: false };
+      return { ...state, isSignedIn: true, userInfo: action.payload, wrongCredentials: false, userExists: false };
     case WRONG_CREDENTIALS:
-      return {...state, isSignedIn: false, wrongCredentials: true }
+    case SIGN_IN_ERROR:
+      return { isSignedIn: false, wrongCredentials: true, userExists: false }
+    case USER_EXISTS:
+      return { ...state, isSignedIn: false, userExists: true, wrongCredentials: false }
+    case FETCH_USER:
+      return { ...state, userInfo: action.payload }
+    case UPDATE_USER:
+      return { ...state, userInfo: action.payload }
     default:
       return state;
   }
