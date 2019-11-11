@@ -9,10 +9,6 @@ import Header from './shared/Header';
 import history from '../history';
 import Notfound from './shared/NotFound';
 import { routes } from '../routes';
-import jss from 'jss'
-import preset from 'jss-preset-default'
-
-jss.setup(preset());
 
 class App extends React.Component {
 
