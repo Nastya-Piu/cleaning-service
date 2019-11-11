@@ -7,14 +7,14 @@ import Input from '../shared/form/Input';
 class LoginForm extends React.Component {
 
   onSubmit = (credentials) => {
-    this.props.onSubmit('form', credentials);
+    this.props.onSubmit(credentials);
   }
 
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="needs-validation" noValidate>
-        <Field name="email" type="email" component={Input} label="Email"/>
-        <Field name="password" type="password" component={Input} label="Password"/>
+        <Field name="email" type="email" component={Input} label="Email" />
+        <Field name="password" type="password" component={Input} label="Password" />
         <button className="btn btn-primary">Log in</button>
       </form>
     )
@@ -22,8 +22,8 @@ class LoginForm extends React.Component {
 }
 
 const validate = validateForm({
-  password: [required({msg: "You must enter a password"})],
-  email: [required({msg: "You must enter email"}), email({msg: "Please, enter a valid email"})],
+  password: [required()],
+  email: [required(), email()],
 });
 
 LoginForm.propTypes = {

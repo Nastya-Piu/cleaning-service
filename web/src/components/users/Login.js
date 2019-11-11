@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { signIn, signOut } from '../../store/actions/userActions';
 import SocialAuth from '../shared/SocialAuth';
 import LoginForm from './LoginForm';
@@ -11,8 +10,9 @@ class Login extends React.Component {
     this.props.signOut();
   }
 
-  onSubmit = (type, value) => {
-    this.props.signIn(type, value);
+  onSubmit = (value) => {
+    console.log(value)
+    this.props.signIn(value);
   };
 
   render() {

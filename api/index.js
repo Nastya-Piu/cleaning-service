@@ -1,65 +1,49 @@
+require("@babel/register")({
+  presets: ["@babel/preset-env"]
+});
+require('dotenv').config();
+
 const jsonServer = require('json-server');
 const bodyParser = require('body-parser');
 const express = require('express');
 const auth = require('json-server-auth')
-const jwt = require('jsonwebtoken')
-const server = express(); //jsonServer.create();
+const serverError = require('./src/response')
+
+const server = express();
+
 const router = jsonServer.router('db.json');
 
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 3000;
 
-const AWS = require('aws-sdk');
-const uuid = require('node-uuid');
-
-var config = require('./config');
 let upload = require('./multer.config.js');
-
-const s3 = new AWS.S3({ accessKeyId: config.accessKeyId, secretAccessKey: config.secretAccessKey, region: config.region });
+const { uploadImage } = require('./src/controllers/image-upload');
+const { login, register, profile, linkedinLogin } = require('./src/controllers/users-actions');
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 
 server.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://localhost:3001");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Methods", "*")
   next();
 });
-server.post('/image-upload', upload.single('upload'), (req, res) => {
 
-  var key = uuid() + req.file.originalname;
+server.post('/login', login);
 
-  s3.upload({
-    Bucket: config.bucket,
-    Body: req.file.buffer,
-    Key: key
-  }, async (err, data) => {
-    if (err) {
-      res.status(500).json({ uploaded: false, error: { message: err } });
-    }
-    const url = await s3.getSignedUrl("getObject", {
-      Bucket: config.bucket,
-      Key: key
-    });
-    res.json({ fileName: key, uploaded: true, url: url })
-  });
-});
+server.post('/users', register);
 
-async function getPresignedUploadUrl(bucket, directory) {
-  const key = `${directory}/${uuid.v4()}`;
-  const url = await s3
-    .getSignedUrl('putObject', {
-      Bucket: bucket,
-      Key: key,
-      ContentType: 'image/*',
-      Expires: 300,
-    })
-    .promise();
-  return url;
-}
+server.post('/image-upload', upload.single('upload'), uploadImage);
 
-//server.db = router.db
-//server.use(auth);
+server.get('/profile', auth, profile);
+
+server.post('/linkedin', linkedinLogin);
+
+server.db = router.db
+
+server.use((err, req, res, next) => serverError(res, err))
+server.use(auth);
 server.use(middlewares);
 server.use(router);
 

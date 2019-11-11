@@ -1,15 +1,13 @@
 import React from 'react'
+import { BaseInput } from './BaseInput';
 
 const Input = ({ label, input, type, placeholder, meta: { error, touched } }) => {
 
   return (
-    <div className="form-group">
+    <BaseInput error={error} touched={touched}>
       <label>{label}</label>
       <input className="form-control" {...input} type={type} placeholder={placeholder} />
-      {error && touched && <div className="invalid-form">
-        {error}
-      </div>}
-    </div>
+    </BaseInput>
   );
 
 };

@@ -7,8 +7,8 @@ import SocialAuth from '../shared/SocialAuth';
 
 class Register extends React.Component {
 
-  onSubmit = ( method, profile) => {
-    this.props.register(method, profile);
+  onSubmit = (profile) => {
+    this.props.register(profile);
   };
 
   logout = () => {
@@ -18,15 +18,15 @@ class Register extends React.Component {
   render() {
     return (
       <div>
-        { !this.props.isSignedIn &&
+        {!this.props.isSignedIn &&
           <>
             <h1 className="text-center">Fill in the fields, please: </h1>
-            <SocialAuth onSubmit={this.onSubmit}/>
-            <RegisterForm onSubmit={this.onSubmit}/>
+            <SocialAuth onSubmit={this.onSubmit} />
+            <RegisterForm onSubmit={this.onSubmit} />
           </>
         }
-        { this.props.userExists && <p className="text-danger text-center">User is already exists. Please, <Link to='/users/login'>Login</Link></p>}
-        { this.props.isSignedIn &&
+        {this.props.userExists && <p className="text-danger text-center">User is already exists. Please, <Link to='/users/login'>Login</Link></p>}
+        {this.props.isSignedIn &&
           <div className="text-center">
             <h1>You are already signed in</h1>
             <button className="btn btn-outline-secondary" onClick={this.logout}>Logout</button>

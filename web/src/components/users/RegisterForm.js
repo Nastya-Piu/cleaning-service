@@ -7,7 +7,7 @@ import Input from '../shared/form/Input';
 class RegisterForm extends React.Component {
 
   onSubmit = (stream) => {
-    this.props.onSubmit('form', stream);
+    this.props.onSubmit(stream);
   }
 
   render() {

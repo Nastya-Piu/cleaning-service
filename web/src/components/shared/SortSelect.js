@@ -5,6 +5,28 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import { Row, Col } from 'react-bootstrap';
+import jss from 'jss';
+
+import preset from 'jss-preset-default'
+
+jss.setup(preset());
+
+const styles = {
+  selectInput: {
+    marginRight: '10px'
+  },
+  searchInput: {
+    paddingTop: '6px',
+    paddingLeft: '10px',
+  },
+  searchButton: {
+    padding: '5px',
+    float: 'right'
+  }
+}
+
+const { classes } = jss.createStyleSheet(styles).attach();
+
 
 const SortSelect = (props) => {
 
@@ -17,13 +39,11 @@ const SortSelect = (props) => {
   return (
     <Row>
       <Col md={3}>
+
         <NativeSelect
-          style={{ backgroundColor: "white" }}
-          className="select-input"
+          className={classes.selectInput}
           value={sort}
           onChange={handleChange('sort')}
-          name="sort"
-          inputProps={{ 'aria-label': 'sort' }}
         >
           <option value="">Sort list</option>
           <option value='rate'>By rating</option>
@@ -32,7 +52,7 @@ const SortSelect = (props) => {
           <option value='requests'>By popularity</option>
         </NativeSelect>
         <NativeSelect
-          className="select-input"
+          className={classes.selectInput}
           value={order}
           onChange={handleChange('order')}>
           <option value={'asc'}>Asc</option>
@@ -40,13 +60,12 @@ const SortSelect = (props) => {
         </NativeSelect>
       </Col>
       <Col md={{ span: 3, offset: 6 }}>
-        <Paper>
+        <Paper className={classes.searchInput}>
           <InputBase
             onChange={handleChange('query')}
-            style={{ paddingTop: 6, paddingLeft: 10 }}
             placeholder="Search services"
           />
-          <IconButton style={{ padding: 10 }} className="float-right" aria-label="search">
+          <IconButton className={classes.searchButton} aria-label="search">
             <SearchIcon />
           </IconButton>
         </Paper>

@@ -1,26 +1,34 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import { connect } from 'react-redux';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { getProfile } from '../store/actions/userActions'
 import Header from './shared/Header';
 import history from '../history';
 import Notfound from './shared/NotFound';
 import { routes } from '../routes';
+import jss from 'jss'
+import preset from 'jss-preset-default'
+
+jss.setup(preset());
 
 class App extends React.Component {
 
   componentDidMount() {
-    // get user - sessionStorage / localStorage - need isSignedIn, userInfo
-    // check roles
+    this.props.getProfile();
   }
 
   render() {
     return (
       <Router history={history}>
+        <ReactNotification />
         <Header />
         <Container>
           <Switch>
-                {routes.map((route) => <Route exact key={route.path} {...route} />)}
-                <Route component={Notfound} />
+            {routes.map((route) => <Route exact key={route.path} {...route} />)}
+            <Route component={Notfound} />
           </Switch>
         </Container>
       </Router>
@@ -28,4 +36,4 @@ class App extends React.Component {
   };
 }
 
-export default App;
+export default connect(null, { getProfile })(App);

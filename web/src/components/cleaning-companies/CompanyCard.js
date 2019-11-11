@@ -4,25 +4,40 @@ import Rating from '@material-ui/lab/Rating'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
 import Popup from '../shared/Popup';
 import AddressMap from '../shared/AddressMap';
+import { getRandomImage } from '../../utils/picture'
 
 const CompanyCard = props => {
 
   const { id, name, address, rate, coordinates, logo } = props.company;
 
+  const ServiceImage = styled.div`
+    width: 100%;
+    height: 250px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(${logo ? logo : getRandomImage(id)})
+  `
+  const AddressSpan = styled.span`
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  `
+
   return (
-    <div className="card col-md-3 col-sm-6 .col-6" style={{ padding: 0 }}>
-      <img height="283" src={
-        logo ? logo : `https://picsum.photos/id/${id + Math.floor(Math.random() * Math.floor(100))}/200?grayscale`} width="100" className="card-img-top" alt={name} />
+    <div className="card col-md-3 col-sm-6 col-6">
+      <ServiceImage />
       <div className="card-body">
         <h5 className="card-title">
           <Link to={`/services/${id}`}>
             {name}
           </Link>
         </h5>
-        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates ? coordinates : []} />}>
-          <span className="company-address"><FontAwesomeIcon icon={faMapMarkerAlt} /> {address}</span>
+        <Popup title={`${name} address`} content={<AddressMap address={address} coordinates={coordinates} />}>
+          <AddressSpan><FontAwesomeIcon icon={faMapMarkerAlt} /> {address}</AddressSpan>
         </Popup>
         <Rating
           value={rate}

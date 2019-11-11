@@ -1,5 +1,6 @@
 import React from 'react'
 import TimeAgo from 'react-timeago'
+import './Review.scss'
 import Rating from '@material-ui/lab/Rating';
 
 const Review = (props) => {

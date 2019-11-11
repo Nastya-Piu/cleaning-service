@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field, reduxForm, reset } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 import Input from '../shared/form/Input';
 import { validateForm, required } from 'redux-form-validators';
 import TextArea from '../shared/form/TextArea';
 import RatingInput from './form/RatingInput';
-
+import './Review.scss'
 
 const ReviewForm = props => {
 
@@ -31,9 +31,9 @@ ReviewForm.propTypes = {
 }
 
 const validate = validateForm({
-  rating: [required({ msg: "You should rate your experience" })],
-  title: [required({ msg: "You should enter a title" })],
-  description: [required({ msg: "You should enter text" })]
+  rating: [required()],
+  title: [required()],
+  description: [required()]
 });
 
 export default reduxForm({

@@ -7,6 +7,9 @@ import { updateProfile } from '../../store/actions/userActions'
 class EditProfile extends Component {
 
   onSubmit = values => {
+    if (!values.password) {
+      delete values['password'];
+    }
     this.props.updateProfile(values);
   }
 

@@ -34,11 +34,11 @@ OrderForm.propTypes = {
 }
 
 const validate = validateForm({
-  address: [required({ msg: "You should enter your address" })],
-  cleanType: [required({ msg: "You should select clean type" })],
-  description: [required({ msg: "You should enter description" })],
-  dates: [length({ min: 1, msg: "You should select days" })], // TODO: create validator for checking this!
-  time: [required({ msg: "You should select time" })]
+  address: [required()],
+  cleanType: [required()],
+  description: [required()],
+  dates: [length({ min: 1 })],
+  time: [required()]
 });
 
 export default reduxForm({

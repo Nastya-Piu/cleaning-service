@@ -1,5 +1,5 @@
 import {
-  FETCH_COMPANIES, FETCH_SERVICE_TYPES, FETCH_COMPANY, FETCH_ERROR, CREATE_REQUEST, ADD_REVIEW, FETCH_REVIEWS, FETCH_ORDERS, CREATE_COMPANY, APPEND_COMPANIES, EDIT_COMPANY
+  FETCH_COMPANIES, FETCH_SERVICE_TYPES, FETCH_COMPANY, FETCH_ERROR, CREATE_REQUEST, ADD_REVIEW, FETCH_REVIEWS, FETCH_ORDERS, CREATE_COMPANY, APPEND_COMPANIES, EDIT_COMPANY, REMOVE_ORDER
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -19,7 +19,7 @@ export const fetchCompanies = (params = {}) => {
 
     Object.keys(searchParams).forEach(key => {
       if (params[key]) {
-        paramsString = `${(paramsString ? paramsString + '&' : '?')}${searchParams[key]}=${params[key]}`;
+        paramsString = `${(paramsString ? paramsString + '&' : '?')}${searchParams[key]}=${encodeURIComponent(params[key])}`;
       }
     });
 
@@ -42,7 +42,6 @@ export const fetchCompanies = (params = {}) => {
 
       })
       .catch((err) => {
-        console.log(err);
         dispatch({
           type: FETCH_ERROR,
           payload: err
@@ -146,6 +145,19 @@ export const fetchOrders = userId => {
   };
 
 }
+
+export const removeOrder = orderId => {
+
+  return async dispatch => {
+
+    await api.delete(`/userRequests/${orderId}`)
+
+    dispatch({
+      type: REMOVE_ORDER,
+      payload: orderId
+    })
+  };
+};
 
 export const addReview = (review) => {
   return async dispatch => {

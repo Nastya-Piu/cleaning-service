@@ -4,15 +4,49 @@ import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
+import _ from 'lodash';
 import LoginFirst from '../shared/LoginFirst';
-import { fetchOrders } from '../../store/actions/companyActions';
-import CompanyOrderCard from '../cleaning-companies/CompanyOrderCard';
+import { fetchOrders, removeOrder } from '../../store/actions/companyActions';
+import { getRandomImage } from '../../utils/picture';
+import jss from 'jss';
+
+import preset from 'jss-preset-default'
+import { OrderList } from './OrderList';
+
+jss.setup(preset());
+
+const styles = {
+  userImage: {
+    borderRadius: '4px',
+    width: '200px',
+    border: '4px solid black',
+    boxShadow: '4px 4px 8px 2px #bbb'
+  },
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 150,
+    height: 45,
+    background: '#3498db',
+    border: 0,
+    ':hover': {
+      backgroundColor: '#2980b9'
+    }
+  }
+}
+
+const { classes } = jss.createStyleSheet(styles).attach();
 
 class UserPage extends Component {
 
   componentDidMount() {
     this.props.fetchOrders(this.props.match.params.id);
   }
+
+  removeOrder = (id) => {
+    this.props.removeOrder(id);
+  };
 
   render() {
     const { user } = this.props;
@@ -21,26 +55,20 @@ class UserPage extends Component {
       return <LoginFirst />
     }
 
+    const { id, profilePicURL, name, email, address } = user;
+
     return (
       <Row>
         <Col xs={12} md={3}>
-          <img width="70%" src={user.profilePicURL ? user.profilePicURL : `https://picsum.photos/id/${user.id}/200/200?grayscale`} />
+          <img className={classes.userImage} width="70%" src={profilePicURL ? profilePicURL : getRandomImage(id)} />
         </Col>
         <Col xs={12} md={9}>
-          <h4>{user.name}</h4>
-          <div>{user.email}</div>
-          {user.address && <div><FontAwesomeIcon icon={faMapMarker} /> {user.address} </div>}
-          <div className="float-right">
-            <Link to={`/users/${user.id}/edit`}><FontAwesomeIcon icon={faPencilAlt} /></Link>
-          </div>
-          {this.props.orders &&
-            <div className="orders">
-              <h4>Orders:</h4>
-              {this.props.orders.map(order => <CompanyOrderCard key={order.id} order={order} />)}
-            </div>
-          }
+          <h4>{name} <Link style={{ fontSize: '0.8em' }} to={`/users/${id}/edit`}><FontAwesomeIcon icon={faPencilAlt} /></Link></h4>
+          <div>{email}</div>
+          {address && <div><FontAwesomeIcon icon={faMapMarker} /> {address} </div>}
+          <OrderList orders={this.props.orders} onRemoveOrder={this.removeOrder} />
         </Col>
-      </Row>
+      </Row >
     )
   }
 }
@@ -51,6 +79,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-  fetchOrders
+  fetchOrders, removeOrder
 })(UserPage)
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes, { number } from 'prop-types'
+import './AddressMap.scss'
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -41,6 +42,10 @@ const AddressMap = props => {
 AddressMap.propTypes = {
   address: PropTypes.string,
   coordinates: PropTypes.arrayOf(number)
+}
+
+AddressMap.defaultProps = {
+  coordinates: []
 }
 
 

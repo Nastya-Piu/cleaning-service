@@ -10,18 +10,17 @@ class CompanyCreate extends Component {
     this.props.createCompany(values);
   }
 
-
   render() {
+
+    if (!this.props.user) {
+      return <LoginFirst message="You have no rights to create new company." />;
+    }
+
     return (
-      <>
-        {this.props.user ?
-          <div>
-            <h4>Add your company:</h4>
-            <CompanyForm onSubmit={this.onSubmit} />
-          </div> :
-          <LoginFirst message="You have no rights to create new company." />
-        }
-      </>
+      <div>
+        <h4>Add your company:</h4>
+        <CompanyForm onSubmit={this.onSubmit} />
+      </div>
     )
   }
 }

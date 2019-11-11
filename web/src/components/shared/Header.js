@@ -1,9 +1,17 @@
 import React from 'react';
-import './Header.scss';
+import headerStyles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav } from 'react-bootstrap';
+import styled from 'styled-components';
 import { SIGN_OUT } from '../../store/actions/types';
+
+const HeaderImage = styled.img`
+  border-radius: 50%;
+  height: 33px;
+  width: 33px;
+  margin: 0 10px;
+`;
 
 const Header = () => {
 
@@ -22,10 +30,10 @@ const Header = () => {
 
           {isSignedIn ?
             <div>
-              <Link to={`/users/${userInfo.id}`} className="user-profile-link">
+              <Link to={`/users/${userInfo.id}`} className={headerStyles.userProfileLink}>
                 {userInfo.name}
               </Link>
-              <img alt={userInfo.name} className="header-profile-image" src={userInfo.profilePicURL} />
+              <HeaderImage alt={userInfo.name} src={userInfo.profilePicURL} />
               <button className="btn btn-outline-primary" onClick={() => dispatch({ type: SIGN_OUT })}>Logout</button>
             </div>
             :
@@ -41,7 +49,7 @@ const Header = () => {
 
         </Navbar.Collapse>
       </Navbar>
-      <div className="jumbotron jumbotron-fluid">
+      <div className="jumbotron jumbotron-fluid" className={headerStyles.jumbotron}>
         <div className="container">
           <h1 className="display-3">Be always cleaned!</h1>
           <p className="lead">Choose service for your home and office by comparing</p>

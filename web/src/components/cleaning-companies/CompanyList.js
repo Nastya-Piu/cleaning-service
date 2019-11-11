@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faSadTear } from '@fortawesome/free-solid-svg-icons';
 import { debounce } from 'lodash';
 import { fetchCompanies } from '../../store/actions/companyActions';
 import CompanyCard from './CompanyCard';
 import { getCompaniesState } from '../../store/selectors/companySelector';
 import SortSelect from '../shared/SortSelect';
+import LoaderOrEmpty from '../shared/Loader';
 
 
 class CompanyList extends React.Component {
@@ -15,23 +14,20 @@ class CompanyList extends React.Component {
   constructor(props) {
     super(props)
     this.currentPage = 1;
-    window.onscroll = debounce(() => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
-        if (this.props.companies.length < 10) {
-          this.currentPage = ++this.currentPage;
-          this.loadCompanies()
-        }
+    window.onscroll = debounce(this.onScrollToBottom, 100);
+  }
+
+  onScrollToBottom = () => {
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      if (this.props.companies.length < 17) { // TODO: get initially length of all companies
+        this.currentPage = ++this.currentPage;
+        this.loadCompanies()
       }
-    }, 100);
+    }
   }
 
   componentWillUnmount() {
-    window.onscroll = () => {
-      // do nothing TODO: make something with it!
-    }
+    window.onscroll = null;
   }
 
   componentDidMount() {
@@ -52,7 +48,7 @@ class CompanyList extends React.Component {
   };
 
   loadCompanies = (paramsObj) => {
-    this.props.fetchCompanies(Object.assign(this.props.params, paramsObj, { page: this.currentPage }));
+    this.props.fetchCompanies({ ...this.props.params, ...paramsObj, page: this.currentPage })
   }
 
   render() {
@@ -66,15 +62,12 @@ class CompanyList extends React.Component {
           <Link to="/services/new" className="btn btn-primary">Register company</Link>
         </div>}
         <SortSelect sort={sort} order={order} query={query} onChange={this.handleChange} />
-        <div className="row" ref={(scrollableBox) => this.scrollableBox = scrollableBox}>
+        <div className="row">
           {this.props.companies.map(company => {
             return <CompanyCard key={company.id} company={company} />
           })}
         </div>
-        {this.props.companies.length === 0 && (query ?
-          <div style={{ color: '#555' }} className="text-center">
-            <FontAwesomeIcon icon={faSadTear} size="lg" />Sorry, not found
-          </div> : <div className="text-center"><FontAwesomeIcon icon={faSpinner} spin /></div>)}
+        {this.props.companies.length === 0 && <LoaderOrEmpty isLoading={!query} />}
       </>
     )
   }

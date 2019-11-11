@@ -2,11 +2,10 @@ import {
   SIGN_IN,
   SIGN_OUT,
   SIGN_OUT_GOOGLE,
-  WRONG_CREDENTIALS,
-  REGISTER,
   USER_EXISTS,
   FETCH_USER,
-  UPDATE_USER
+  UPDATE_USER,
+  SIGN_IN_ERROR
 } from './types';
 import history from '../../history';
 import api from '../../api';
@@ -17,77 +16,69 @@ export const signOutGoogle = () => {
   }
 };
 
-export const signIn = (method, user) => {
+export const signIn = (user) => {
 
-  let queryString = '';
   let params = {};
-
-  if (method === 'form') {
-    queryString = `?email=${user.email}&password=${user.password}`;
-  } else {
-    queryString = `?${method}=${user[method]}`;
-    params[method] = user[method];
-  }
-
-  queryString += queryString ? '&limit=1' : queryString;
 
   return async dispatch => {
 
-    const response = await api.get(`/users${queryString}`);
-    if (response.data.length === 0) {
-      dispatch({
-        type: WRONG_CREDENTIALS
+    api.post('/login', user)
+      .then(async response => {
+        localStorage.setItem('accessToken', response.data.accessToken);
+
+        let userResponse = await api.get('/profile');
+        dispatch({
+          type: SIGN_IN,
+          payload: { user: userResponse.data[0], params }
+        });
+        history.push('/');
+      })
+      .catch(err => {
+        dispatch({
+          type: SIGN_IN_ERROR
+        });
       });
-    } else {
-      dispatch({
-        type: SIGN_IN,
-        payload: { user: response.data[0], params }
-      });
-      history.push('/');
-    };
-  }
+
+  };
+
 };
 
 export const signOut = () => {
 
   return (dispatch) => {
-
     dispatch({
       type: SIGN_OUT
     })
   }
 };
 
-export const register = (method, credentials) => {
+export const register = (credentials) => {
 
   return async dispatch => {
 
-    let queryString = '';
-
-    if (method === 'form') {
-      queryString = `?email=${credentials.email}&password=${credentials.password}`;
-    } else {
-      queryString = `?${method}=${credentials[method]}`;
+    if (!('profilePicURL' in credentials)) {
+      credentials['profilePicURL'] = "https://picsum.photos/200";
     }
-
-    const userExists = await api.get(`/users${queryString}`);
-
-    if (userExists.data.length) {
+    delete credentials['id']; // If set by social engine
+    delete credentials['repeatPassword'];
+    await api.post('/users', credentials).then(async response => {
+      localStorage.setItem('accessToken', response.data.accessToken);
+      let userResponse = await api.get('/profile')
       dispatch({
-        type: USER_EXISTS
-      });
-    } else {
-      if (!('profilePicURL' in credentials)) {
-        credentials['profilePicURL'] = "https://picsum.photos/200";
-      }
-      const response = await api.post('/users', credentials);
-      dispatch({
-        type: REGISTER,
-        payload: response.data
+        type: SIGN_IN,
+        payload: { user: userResponse.data[0] }
       });
       history.push('/');
-    }
-  };
+    })
+      .catch(error => {
+        if (error) {
+          dispatch({
+            type: USER_EXISTS
+          })
+        }
+      });
+  }
+
 };
 
 
@@ -113,5 +104,18 @@ export const updateProfile = (newValues) => {
       payload: response.data
     });
     history.push(`/users/${response.data.id}`);
+  }
+}
+
+export const getProfile = () => {
+
+  return async dispatch => {
+    const response = await api.get(`/profile`);
+    if (response.data.length) {
+      dispatch({
+        type: SIGN_IN,
+        payload: { user: response.data[0] }
+      });
+    }
   }
 }

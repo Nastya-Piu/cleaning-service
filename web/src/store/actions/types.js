@@ -9,12 +9,15 @@ export const EDIT_COMPANY = 'EDIT_COMPANY'
 export const ADD_REVIEW = 'ADD_REVIEW'
 export const FETCH_REVIEWS = 'FETCH_REVIEWS'
 export const FETCH_ORDERS = 'FETCH_ORDERS'
+export const REMOVE_ORDER = 'REMOVE_ORDER'
 
 export const SIGN_OUT_GOOGLE = 'SIGN_OUT_GOOGLE';
 export const SIGN_IN = 'SIGN_IN';
+export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
 export const SIGN_OUT = 'SIGN_OUT';
 export const WRONG_CREDENTIALS = 'WRONG_CREDENTIALS';
 export const REGISTER = 'REGISTER';
 export const USER_EXISTS = 'USER_EXISTS';
 export const FETCH_USER = 'FETCH_USER';
 export const UPDATE_USER = 'UPDATE_USER'
+export const GET_PROFILE = 'GET_PROFILE'

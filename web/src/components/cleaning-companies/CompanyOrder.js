@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 import OrderForm from '../users/OrderForm'
 import LoginFirst from '../shared/LoginFirst';
 import { fetchCompany, fetchServiceTypes, createRequest } from '../../store/actions/companyActions';
+import { getCompanyState } from '../../store/selectors/companySelector';
 
 class CompanyOrder extends Component {
 
   componentDidMount() {
-    if (this.props.user) {
-      this.props.fetchServiceTypes();
-      this.props.fetchCompany(this.props.match.params.id);
-    }
+    this.props.fetchServiceTypes();
+    this.props.fetchCompany(this.props.match.params.id);
   }
 
   onSubmit = (request) => {
@@ -24,9 +23,7 @@ class CompanyOrder extends Component {
   render() {
 
     if (!this.props.user) {
-      return (
-        <LoginFirst message="You cannot make order." />
-      )
+      return <LoginFirst message="You cannot make order." />
     }
 
     const { company } = this.props;
@@ -52,7 +49,7 @@ class CompanyOrder extends Component {
 const mapStateToProps = state => {
   return {
     types: state.companies.types,
-    company: state.companies.data[0],
+    company: getCompanyState(state),
     user: state.auth.userInfo
   }
 }

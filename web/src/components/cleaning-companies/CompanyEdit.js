@@ -16,18 +16,17 @@ class CompanyEdit extends Component {
     this.props.editCompany(values);
   }
 
-
   render() {
+
+    if (!this.props.user) {
+      return <LoginFirst message="You couldn't edit company." />
+    }
+
     return (
-      <>
-        {this.props.user ?
-          <div>
-            <h4>Edit your <Link to={`/services/${this.props.company.id}`}>company</Link>:</h4>
-            <CompanyForm onSubmit={this.onSubmit} initialValues={this.props.company} />
-          </div> :
-          <LoginFirst message="You couldn't edit company." />
-        }
-      </>
+      <div>
+        <h4>Edit your <Link to={`/services/${this.props.company.id}`}>company</Link>:</h4>
+        <CompanyForm onSubmit={this.onSubmit} initialValues={this.props.company} />
+      </div>
     )
   }
 }

@@ -7,6 +7,7 @@ import {
   USER_EXISTS,
   FETCH_USER,
   UPDATE_USER,
+  SIGN_IN_ERROR,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -23,12 +24,14 @@ export default (state = INITIAL_STATE, action) => {
     case SIGN_IN:
       return { ...state, isSignedIn: true, userInfo: action.payload.user, wrongCredentials: false, ...action.payload.params, userExists: false };
     case SIGN_OUT:
+      localStorage.removeItem('accessToken');
       return { ...state, ...INITIAL_STATE };
     case SIGN_OUT_GOOGLE:
-      return { INITIAL_STATE };
+      return { ...INITIAL_STATE };
     case REGISTER:
       return { ...state, isSignedIn: true, userInfo: action.payload, wrongCredentials: false, userExists: false };
     case WRONG_CREDENTIALS:
+    case SIGN_IN_ERROR:
       return { isSignedIn: false, wrongCredentials: true, userExists: false }
     case USER_EXISTS:
       return { ...state, isSignedIn: false, userExists: true, wrongCredentials: false }

@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import TimePicker from 'react-time-picker';
+import styled from "styled-components";
+import { BaseInput } from './BaseInput';
 
+const StyledTimePicker = styled(TimePicker)`
+  >div {
+    padding: 5px;
+    border-color: #eee;
+  }
+  button:first-child {
+    padding: 5px;
+  }
+  button:last-child {
+    display:none;
+  }
+`
 
-const TimePickerInput = ({input, label}) => {
+const TimePickerInput = ({ input, label, meta: { error, touched } }) => {
 
   const [time, setTime] = useState("10:00");
 
@@ -13,13 +27,13 @@ const TimePickerInput = ({input, label}) => {
   });
 
   return (
-    <div>
+    <BaseInput error={error} touched={touched}>
       <p>{label}</p>
-      <TimePicker
+      <StyledTimePicker
         onChange={onChange}
         value={time}
       />
-    </div>
+    </BaseInput>
   );
 
 }
